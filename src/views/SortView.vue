@@ -224,7 +224,7 @@ import headhb from "@/components/HeadVue.vue"
 
           this.$axios({
             method: 'post',
-            url: '/ranking/',
+            url: 'http://101.42.224.73:8000/ranking/',
             data: {
               "order_item": this.orderItem,
               "order_type": this.orderType
@@ -259,7 +259,7 @@ import headhb from "@/components/HeadVue.vue"
 
           this.$axios({
             method: 'post',
-            url: '/ranking/',
+            url: 'http://101.42.224.73:8000/ranking/',
             data: {
               "order_item": "follows_nums",
               "order_type": "desc"

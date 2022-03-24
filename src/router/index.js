@@ -2,6 +2,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import user from "@/store/user";
 
+
+// npm run serve:  running state
+// serve -s dist: not dependent on vue environment, start the application from dist/ 
+
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -64,7 +69,7 @@ const routes = [
 const router = new VueRouter({
   routes,
   mode: 'history',
-  base: '/admin/',
+  base: '/vue/',
 })
 
 router.beforeEach((to, from, next) => {

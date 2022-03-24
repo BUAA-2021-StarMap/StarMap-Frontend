@@ -83,7 +83,7 @@ export default {
       console.log("logout");
       this.$axios({
         methods: "get",
-        url: "/user/logout/",
+        url: "http://101.42.224.73:8000/user/logout/",
       }).then((res) => {
         console.log(res), this.$router.push("/");
       });
@@ -117,7 +117,7 @@ export default {
     console.log(dateValue);
     this.$axios({
       methods: "get",
-      url: "/forum/all/",
+      url: "http://101.42.224.73:8000/forum/all/",
     }).then((res) => {
       console.log("forumall");
       console.log(res);

@@ -248,7 +248,7 @@
         </v-col>
       </v-row>
       <!-- 弹窗 -->
-      <v-dialog v-model="dialog2" max-width="44vw" max-height="100vh">
+      <!-- <v-dialog v-model="dialog2" max-width="44vw" max-height="100vh">
         <v-card class="mx-auto" width="40vw">
           <img width="70vw" height="70vh" class="touxiang1" :src="Nitem.AVATAR_URL" />
 
@@ -271,7 +271,7 @@
               }}</v-card-text>
             </v-btn>
           </v-card-actions>
-          <!-- 下拉内容 -->
+          下拉内容
           <v-expand-transition>
             <div v-show="show">
               <v-divider></v-divider>
@@ -338,7 +338,7 @@
             </div>
           </v-expand-transition>
         </v-card>
-      </v-dialog>
+      </v-dialog> -->
     </v-app>
   </div>
 </template>
