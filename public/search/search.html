@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarMap</title>
+    <link rel="stylesheet" href="../init.css">
+    <link rel="stylesheet" href="search.css">
+</head>
+
+<body class="transition">
+    <div id="search">
+        <!-- 背景星星部分 -->
+        <div>
+            <img src="../pic/star/StarBackground1.png" alt="" class="StarBackground1">
+            <img src="../pic/star/StarBackground2.png" alt="" class="StarBackground2">
+            <img src="../pic/star/StarBackground3.png" alt="" class="StarBackground3">
+        </div>
+        <!-- 搜索框部分 -->
+        <header>
+            <button v-html="logoLight" @click="changeDark" v-if="light" class="change outline"></button>
+            <button v-html="logoDark" @click="changeLight" v-if="dark" class="change outline"></button>
+            <input type="text" class="outline transition inputLight" v-model="message" v-if="light" />
+            <input type="text" class="outline transition inputDark" v-model="tag" v-if="dark">
+            <button @click="ShowTag" class="outline icomoon TagButton transition" v-if="dark"></button>
+            <!-- <div class="outline tag"></div> -->
+            <button class="icomoon outline transition searchLight" @click="SendMessage" v-if="light"></button>
+            <button class="icomoon outline transition searchDark" @click="SendTag" v-if="dark"></button>
+        </header>
+
+        <!-- 导航栏部分 -->
+        <nav :class="[light?'navLight':'navDark']" class="transition">
+            <div class="l1 transition" :class="[light?'boxLight':'boxDark']">
+                <img src="../pic/logo_starmap.png" title="StarMap" class="StarMap">
+            </div>
+            <div class="l2 transition" :class="[light?'boxLight':'boxDark']"><a href="#"
+                    :class="[light?'LittleBoxLight':'LittleBoxDark']">主页</a></div>
+            <div class="l3 transition" :class="[light?'boxLight':'boxDark']"><a href="#"
+                    :class="[light?'LittleBoxLight':'LittleBoxDark']">联系我们</a></div>
+            <div class="l4 transition" :class="[light?'boxLight':'boxDark']"><a href="#"
+                    :class="[light?'LittleBoxLight':'LittleBoxDark']">关于</a></div>
+            <div class="r3 transition" :class="[light?'boxLight':'boxDark']"><a href="#"
+                    :class="[light?'LittleBoxLight':'LittleBoxDark']">消息</a></div>
+            <div class="r2 transition" :class="[light?'boxLight':'boxDark']"><a href="#"
+                    :class="[light?'LittleBoxLight':'LittleBoxDark']">创作</a></div>
+            <div class="r1 transition" :class="[light?'boxLight':'boxDark']">
+                <a href="#" class="avatar" v-html="photo"></a>
+            </div>
+            <!-- 下拉式 再说吧
+            <span class="eject icomoon"></span><span>设置</span>
+            <span class="eject icomoon"></span><span>收藏</span>
+            <span class="eject icomoon"></span><span>好友</span>
+            <span class="eject icomoon"></span><span>信息</span> -->
+        </nav>
+        <!-- 排行榜部分 -->
+        <section class="leaderboard" :class="[light?'blockLight':'blockDark']">
+            <p class="BlockTitle">
+                <a href="#" v-text="light?'Commits Rank':'Followers Rank'"
+                    :class="[light?'blockLinkLight':'blockLinkDark']" class="transition"></a>
+            </p>
+            <p class="RankText RankOne">
+                <span class="icomoon transition" :class="[light?'FireAndNumLight':'FireAndNumDark']"> 1</span>
+                <a href="#">
+                    <img :src="AvatarOne" alt="" class="LittleAvatar">
+                </a>
+                <a href="#" :class="[light?'blockLinkLight':'blockLinkDark']">{{PersonOne}}</a>
+            </p>
+
+            <p class="RankText RankTwo">
+                <span class="icomoon transition" :class="[light?'FireAndNumLight':'FireAndNumDark']"> 2</span>
+                <a href="#">
+                    <img :src="AvatarTwo" alt="" class="LittleAvatar">
+                </a>
+                <a href="#" :class="[light?'blockLinkLight':'blockLinkDark']">{{PersonTwo}}</a>
+            </p>
+
+            <p class="RankText RankThree">
+                <span class="icomoon transition" :class="[light?'FireAndNumLight':'FireAndNumDark']"> 3</span>
+                <a href="#">
+                    <img :src="AvatarThree" alt="" class="LittleAvatar">
+                </a>
+                <a href="#" :class="[light?'blockLinkLight':'blockLinkDark']">{{PersonThree}}</a>
+            </p>
+
+            <p class="RankText RankFour">
+                <span class="icomoon transition" :class="[light?'FireAndNumLight':'FireAndNumDark']"> 4</span>
+                <a href="#">
+                    <img :src="AvatarFour" alt="" class="LittleAvatar">
+                </a>
+                <a href="#" :class="[light?'blockLinkLight':'blockLinkDark']">{{PersonFour}}</a>
+            </p>
+
+            <p class="RankText RankFive">
+                <span class="icomoon transition" :class="[light?'FireAndNumLight':'FireAndNumDark']"> 5</span>
+                <a href="#">
+                    <img :src="AvatarFive" alt="" class="LittleAvatar">
+                </a>
+                <a href="#" :class="[light?'blockLinkLight':'blockLinkDark']">{{PersonFour}}</a>
+            </p>
+        </section>
+        <!-- 论坛部分 -->
+        <section class="forum" :class="[light?'blockLight':'blockDark']">
+            <p class="BlockTitle">
+                <a href="#" :class="[light?'blockLinkLight':'blockLinkDark']" class="transition">论坛</a>
+            </p>
+            <p class="ForumText ForumOne">
+                <span class="icomoon transition" :class="[light?'FireAndNumLight':'FireAndNumDark']"> 1</span>
+                <a href="#" :class="[light?'blockLinkLight':'blockLinkDark']">{{TitleOne}}</a>
+            </p>
+
+            <p class="ForumText ForumTwo">
+                <span class="icomoon transition" :class="[light?'FireAndNumLight':'FireAndNumDark']"> 2</span>
+                <a href="#" :class="[light?'blockLinkLight':'blockLinkDark']">{{TitleTwo}}</a>
+            </p>
+
+            <p class="ForumText ForumThree">
+                <span class="icomoon transition" :class="[light?'FireAndNumLight':'FireAndNumDark']"> 3</span>
+                <a href="#" :class="[light?'blockLinkLight':'blockLinkDark']">{{TitleThree}}</a>
+            </p>
+        </section>
+        <!-- 数据部分 -->
+        <section class="community" :class="[light?'blockLight':'blockDark']">
+            <p class="BlockTitle">
+                <a href="#" :class="[light?'blockLinkLight':'blockLinkDark']" class="transition">社区分析</a>
+            </p>
+        </section>
+    </div>
+
+    <script src="../vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        var thebody = document.getElementsByTagName('body')
+        var vm = new Vue({
+            el: "#search",
+            data: {
+                logoLight: "<img src='../pic/logo_light.png' class=\"logo\" />",
+                logoDark: "<img src='../pic/logo_dark.png' class=\"logo\" />",
+                light: true,
+                dark: false,
+                webLogoLight: "../pic/StarMapBlackSmall.png",
+                webLogoDark: "../pic/StarMapWhiteSmall.png",
+                webName: "StarMap",
+                message: "请输入问题",
+                tag: "请输入tag",
+                photo: "<img src='../pic/photo.bmp' class=\"avatarPic\" />",
+                TitleOne: "",
+                TitleTwo: "",
+                TitleThree: "",
+                PersonOne: "",
+                PersonTwo: "",
+                PersonThree: "",
+                PersonFour: "",
+                PersonFive: "",
+                AvatarOne: "",
+                AvatarTwo: "",
+                AvatarThree: "",
+                AvatarFour: "",
+                AvatarFive: ""
+
+            },
+            methods: {
+                changeDark: function () {
+                    this.light = !this.light;
+                    this.dark = !this.dark;
+                    thebody[0].id = 'darkTheme';
+                    var that = this;
+
+                    axios.get("http://101.42.224.73:8000/index")
+                        .then(function (response) {
+                            console.log(response);
+                            that.TitleOne = response.data.rank_articles[0].title;
+                            that.TitleTwo = response.data.rank_articles[1].title;
+                            that.TitleThree = response.data.rank_articles[2].title;
+                            that.PersonOne = response.data.rank_followers[0].NAME;
+                            that.PersonTwo = response.data.rank_followers[1].NAME;
+                            that.PersonThree = response.data.rank_followers[2].NAME;
+                            that.PersonFour = response.data.rank_followers[3].NAME;
+                            that.PersonFive = response.data.rank_followers[4].NAME;
+                            that.AvatarOne = response.data.rank_followers[0].AVATAR_URL;
+                            that.AvatarTwo = response.data.rank_followers[1].AVATAR_URL;
+                            that.AvatarThree = response.data.rank_followers[2].AVATAR_URL;
+                            that.AvatarFour = response.data.rank_followers[3].AVATAR_URL;
+                            that.AvatarFive = response.data.rank_followers[4].AVATAR_URL;
+                        }, function (err) {
+                            console.log(err);
+                        })
+                },
+                changeLight: function () {
+                    this.light = !this.light;
+                    this.dark = !this.dark;
+                    thebody[0].id = 'lightTheme';
+
+                    var that = this;
+                    axios.get("http://101.42.224.73:8000/index")
+                        .then(function (response) {
+                            console.log(response);
+                            that.TitleOne = response.data.rank_articles[0].title;
+                            that.TitleTwo = response.data.rank_articles[1].title;
+                            that.TitleThree = response.data.rank_articles[2].title;
+                            that.PersonOne = response.data.rank_commits[0].NAME;
+                            that.PersonTwo = response.data.rank_commits[1].NAME;
+                            that.PersonThree = response.data.rank_commits[2].NAME;
+                            that.PersonFour = response.data.rank_commits[3].NAME;
+                            that.PersonFive = response.data.rank_commits[4].NAME;
+                            that.AvatarOne = response.data.rank_commits[0].AVATAR_URL;
+                            that.AvatarTwo = response.data.rank_commits[1].AVATAR_URL;
+                            that.AvatarThree = response.data.rank_commits[2].AVATAR_URL;
+                            that.AvatarFour = response.data.rank_commits[3].AVATAR_URL;
+                            that.AvatarFive = response.data.rank_commits[4].AVATAR_URL;
+                        }, function (err) {
+                            console.log(err);
+                        })
+                },
+                SendMessage: function () {
+                    var that = this;
+                    axios.post("http://101.42.224.73:8000/#", { message: that.message })//网页不知道 要传递参数叫什么不知道
+                        .then(function (response) {
+                            console.log(response);
+                            axios.post("#", { vi_user: response })//网页不知道
+                                .then(function (response) {
+                                    console.log(response);
+                                }, function (err) {
+                                    console.log(err);
+                                })
+                        }, function (err) {
+                            console.log(err);
+                        })
+                },
+                SendTag: function () {
+                    var that = this;
+                    axios.post("http://101.42.224.73:8000/#", { tag: that.tag })//网页不知道 要传递参数叫什么不知道
+                        .then(function (response) {
+                            console.log(response);
+                            axios.post("#", { vi_user: response })//网页不知道
+                                .then(function (response) {
+                                    console.log(response);
+                                }, function (err) {
+                                    console.log(err);
+                                })
+                        }, function (err) {
+                            console.log(err);
+                        })
+                },
+                ShowTag: function () {
+                    var that = this;
+                    axios.post("http://101.42.224.73:8000/#", { tag: that.tag })//网页不知道 要传递参数叫什么不知道
+                        .then(function (response) {
+                            console.log(response);
+                        }, function (err) {
+                            console.log(err);
+                        })
+                }
+            },
+            beforeCreate() {
+                var that = this;
+                axios.get("http://101.42.224.73:8000/index")
+                    .then(function (response) {
+                        console.log(response);
+                        that.TitleOne = response.data.rank_articles[0].title;
+                        that.TitleTwo = response.data.rank_articles[1].title;
+                        that.TitleThree = response.data.rank_articles[2].title;
+                        that.PersonOne = response.data.rank_commits[0].NAME;
+                        that.PersonTwo = response.data.rank_commits[1].NAME;
+                        that.PersonThree = response.data.rank_commits[2].NAME;
+                        that.PersonFour = response.data.rank_commits[3].NAME;
+                        that.PersonFive = response.data.rank_commits[4].NAME;
+                        that.AvatarOne = response.data.rank_commits[0].AVATAR_URL;
+                        console.log(that.AvatarOne);
+                        that.AvatarTwo = response.data.rank_commits[1].AVATAR_URL;
+                        that.AvatarThree = response.data.rank_commits[2].AVATAR_URL;
+                        that.AvatarFour = response.data.rank_commits[3].AVATAR_URL;
+                        that.AvatarFive = response.data.rank_commits[4].AVATAR_URL;
+                    }, function (err) {
+                        console.log(err);
+                    })
+            }
+        })
+
+    </script>
+</body>
+
+</html>
