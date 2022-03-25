@@ -279,7 +279,7 @@ export default {
       this.dark = !this.dark;
       var that = this;
 
-      this.$axios.get("http://101.42.224.73:8000/index").then(
+      this.$axios.get("http://www.zhoues.com/index").then(
         function (response) {
           console.log(response);
           that.TitleOne = response.data.rank_articles[0].title;
@@ -308,7 +308,7 @@ export default {
       thebody[0].id = "lightTheme";
 
       var that = this;
-      this.$axios.get("http://101.42.224.73:8000/index").then(
+      this.$axios.get("http://www.zhoues.com/index").then(
         function (response) {
           console.log(response);
           that.TitleOne = response.data.rank_articles[0].title;
@@ -336,7 +336,7 @@ export default {
       console.log(uid);
       //let tags = that.message.split(" ");
       this.$axios
-        .post("http://101.42.224.73:8000/index/", {
+        .post("http://www.zhoues.com/index/", {
           op: 0, //	# 第几类搜索					0-第一类  1-第二类
           isSearch: 1, //	# 是添加标签还是搜索用户		0-添加标签	1-搜索成员
           isAnd: 1, ////	# 是或还是和					0-或		1-和
@@ -380,7 +380,7 @@ export default {
       console.log("alltags:" + alltags);
       console.log(uid);
       this.$axios
-        .post("http://101.42.224.73:8000/index/", {
+        .post("http://www.zhoues.com/index/", {
           op: 1, //	# 第几类搜索					0-第一类  1-第二类
           isSearch: 1, //		# 是添加标签还是搜索用户		0-添加标签	1-搜索成员
           isAnd: 1, //	# 是或还是和					0-或		1-和
@@ -411,7 +411,7 @@ export default {
       let singleTag = temp[temp.length - 1];
       console.log(singleTag);
       this.$axios
-        .post("http://101.42.224.73:8000/index/", {
+        .post("http://www.zhoues.com/index/", {
           op: 1, //	# 第几类搜索					0-第一类  1-第二类
           isSearch: 0, //	# 是添加标签还是搜索用户		0-添加标签	1-搜索成员
           isAnd: 1, //	# 是或还是和					0-或		1-和
@@ -433,7 +433,7 @@ export default {
   },
   created() {
     var that = this;
-    this.$axios.get("http://101.42.224.73:8000/index").then(
+    this.$axios.get("http://www.zhoues.com/index").then(
       function (response) {
         console.log(response);
         that.TitleOne = response.data.rank_articles[0].title;

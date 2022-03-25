@@ -83,7 +83,7 @@ export default {
       console.log("logout");
       this.$axios({
         methods: "get",
-        url: "www.zhoues.com/user/logout/",
+        url: "http://www.zhoues.com/user/logout/",
       }).then((res) => {
         console.log(res), this.$router.push("/");
       });
@@ -117,7 +117,7 @@ export default {
     console.log(dateValue);
     this.$axios({
       methods: "get",
-      url: "www.zhoues.com/forum/all/",
+      url: "http://www.zhoues.com/forum/all/",
     }).then((res) => {
       console.log("forumall");
       console.log(res);
