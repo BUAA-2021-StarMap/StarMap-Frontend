@@ -134,7 +134,7 @@ export default {
           console.log("点击", this.csendMsg);
           this.$axios({
             method: "post" /* 指明请求方式，可以是 get 或 post */,
-            url: "http://www.zhoues.com/user/sendEmail/" /* 指明后端 api 路径，由于在 main.js 已指定根路径，因此在此处只需写相对路由 */,
+            url: "/user/sendEmail/" /* 指明后端 api 路径，由于在 main.js 已指定根路径，因此在此处只需写相对路由 */,
             data: {
               email: this.form.email,
             },
@@ -167,7 +167,7 @@ export default {
         // this.$router.push({ path: "/" }); //无需向后台提交数据，方便前台调试
         this.$axios({
           method: "post" /* 指明请求方式，可以是 get 或 post */,
-          url: "http://www.zhoues.com/user/register/" /* 指明后端 api 路径，由于在 main.js 已指定根路径，因此在此处只需写相对路由 */,
+          url: "/user/register/" /* 指明后端 api 路径，由于在 main.js 已指定根路径，因此在此处只需写相对路由 */,
           data: {
             /* 需要向后端传输的数据，此处使用 qs.stringify 将 json 数据序列化以发送后端 */
             username: this.form.username,
