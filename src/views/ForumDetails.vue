@@ -198,7 +198,7 @@ export default {
     getArticle() {
       const articleId = this.$route.params.articleId;
       const _this = this;
-      this.$axios.get("http://101.42.224.73:8000/forum/show/" + articleId).then((res) => {
+      this.$axios.get("www.zhoues.com/forum/show/" + articleId).then((res) => {
         console.log(res);
         // console.log(res.data.data)
         _this.article = res.data.article;
@@ -222,7 +222,7 @@ export default {
         const articleId = this.$route.params.articleId;
         this.$axios({
           method: "post",
-          url: "http://101.42.224.73:8000/forum/show/" + articleId + "/",
+          url: "www.zhoues.com/forum/show/" + articleId + "/",
           data: {
             uid: this.user_now.uid,
             body: this.commentcontent,
@@ -274,7 +274,7 @@ export default {
       if (this.deletetype == 1) {
         this.$axios({
           method: "post",
-          url: "http://101.42.224.73:8000/forum/delete/" + articleId + "/",
+          url: "www.zhoues.com/forum/delete/" + articleId + "/",
           data: {
             uid: this.user_now.uid,
           },
@@ -288,7 +288,7 @@ export default {
       } else if (this.deletetype == 2) {
         this.$axios({
           method: "post",
-          url: "http://101.42.224.73:8000/forum/show/" + articleId + "/",
+          url: "www.zhoues.com/forum/show/" + articleId + "/",
           data: {
             uid: this.user_now.uid,
             body: this.com_now.body,
@@ -337,7 +337,7 @@ export default {
         if (this.restype == 1) {
           this.$axios({
             method: "post",
-            url: "http://101.42.224.73:8000/forum/show/" + articleId + "/",
+            url: "www.zhoues.com/forum/show/" + articleId + "/",
             data: {
               uid: this.user_now.uid,
               body: this.replycontent,
@@ -365,7 +365,7 @@ export default {
         } else if (this.restype == 2) {
           this.$axios({
             method: "post",
-            url: "http://101.42.224.73:8000/forum/show/" + articleId + "/",
+            url: "www.zhoues.com/forum/show/" + articleId + "/",
             data: {
               uid: this.user_now.uid,
               body: this.replycontent,

@@ -71,7 +71,7 @@ export default {
     const _this = this;
     console.log("准备修改文章");
     if (articleId) {
-      this.$axios.get("http://101.42.224.73:8000/forum/show/" + articleId).then((res) => {
+      this.$axios.get("www.zhoues.com/forum/show/" + articleId).then((res) => {
         console.log(res);
         /////////////xiegang
         const article = res.data.article;
@@ -99,7 +99,7 @@ export default {
             _this
               .$axios({
                 method: "post",
-                url: "http://101.42.224.73:8000/forum/add/",
+                url: "www.zhoues.com/forum/add/",
                 data: {
                   uid: uid,
                   title: _this.editForm.title,
@@ -126,7 +126,7 @@ export default {
         _this
           .$axios({
             methods: "post",
-            url: "http://101.42.224.73:8000/forum/update/" + articleId,
+            url: "www.zhoues.com/forum/update/" + articleId,
             data: {
               title: _this.editForm.title,
               //"description": this.editForm.description,
