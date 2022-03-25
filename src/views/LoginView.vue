@@ -61,7 +61,7 @@ export default {
         this.$message.warning("请输入用户名和密码！");
         return;
       }
-
+      console.log("sendpost");
       this.$axios({
         method: "post" /* 指明请求方式，可以是 get 或 post */,
         url: "www.zhoues.com/user/login/",
