@@ -279,7 +279,7 @@ export default {
       this.dark = !this.dark;
       var that = this;
 
-      this.$axios.get("http://www.zhoues.com/index").then(
+      this.$axios.get("http://www.zhoues.com/index/").then(
         function (response) {
           console.log(response);
           that.TitleOne = response.data.rank_articles[0].title;
@@ -308,7 +308,7 @@ export default {
       thebody[0].id = "lightTheme";
 
       var that = this;
-      this.$axios.get("http://www.zhoues.com/index").then(
+      this.$axios.get("http://www.zhoues.com/index/").then(
         function (response) {
           console.log(response);
           that.TitleOne = response.data.rank_articles[0].title;
@@ -433,7 +433,7 @@ export default {
   },
   created() {
     var that = this;
-    this.$axios.get("http://www.zhoues.com/index").then(
+    this.$axios.get("http://www.zhoues.com/index/").then(
       function (response) {
         console.log(response);
         that.TitleOne = response.data.rank_articles[0].title;
