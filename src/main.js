@@ -25,8 +25,10 @@ Vue.prototype.$echarts = echarts
 // 指定 axios 发送请求的目标后端地址的根路径
 // 一般为后端服务器IP+端口；若有部署域名则可以是域名地址；
 // 此处假设在本地同时运行前后端，后端地址为 http://localhost:8000
-axios.defaults.baseURL = 'http://101.42.224.73:8000/';
-//axios.defaults.baseURL = 'http://www.zhoues.com/';
+
+//axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
+//axios.defaults.baseURL = 'http://101.42.224.73:8000/';
+axios.defaults.baseURL = 'http://www.zhoues.com:8000/';
 
 new Vue({
   router,
