@@ -28,7 +28,7 @@ Vue.prototype.$echarts = echarts
 
 //axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
 //axios.defaults.baseURL = 'http://101.42.224.73:8000/';
-axios.defaults.baseURL = 'http://www.zhoues.com:8000/';
+axios.defaults.baseURL = 'http://www.zhoues.com/';
 
 new Vue({
   router,
