@@ -28,7 +28,7 @@ Vue.prototype.$echarts = echarts
 
 //axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
 //axios.defaults.baseURL = 'http://101.42.224.73:8000/';
-axios.defaults.baseURL = 'https://www.zhoues.com/';
+axios.defaults.baseURL = 'https://www.zhoues.com/api/';
 
 new Vue({
   router,
@@ -41,10 +41,7 @@ new Vue({
 import App from './App'
 import router from './router'
 import axios from 'axios'
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-
-Vue.use(ElementUI)
+import ElementUI from 'element-np
 //全局配置
 Vue.prototype.$axios = axios
 Vue.config.productionTip = false
