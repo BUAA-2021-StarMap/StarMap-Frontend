@@ -640,7 +640,7 @@ export default {
 }
 .SearchInput >>> .inputLight:focus,
 .SearchInput >>> .inputLight:active {
-  border-color: #fcdd61;
+  border-color: #f7bf07;
 }
 .inputDark {
   position: absolute;
@@ -659,7 +659,7 @@ export default {
 /* .inputDark:hover,
 .inputDark:focus {
   background-color: #272b33;
-  border: 1px solid #fcdd61;
+  border: 1px solid #f7bf07;
   color: #f0f3f6;
 } */
 
@@ -692,7 +692,7 @@ export default {
   top: 111px;
   width: 44px;
   height: 41px;
-  background-color: #fcdd61;
+  background-color: #f7bf07;
   color: white;
   font-size: 15px;
   border: none;
@@ -727,14 +727,14 @@ export default {
   /* box-shadow: 2px 2px 50px 2px rgb(32, 32, 32); */
 }
 .blockDark:hover {
-  color: #fcdd61;
+  color: #f7bf07;
 }
 
 .blockLinkLight:hover {
   color: #67deff;
 }
 .blockLinkDark:hover {
-  color: #fcdd61;
+  color: #f7bf07;
 }
 
 .leaderboard {
@@ -828,14 +828,14 @@ export default {
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  border: 1px solid #fcdd61;
+  border: 1px solid #f7bf07;
 }
 
 .FireAndNumLight {
   color: #67deff;
 }
 .FireAndNumDark {
-  color: #fcdd61;
+  color: #f7bf07;
 }
 
 .community {
@@ -958,7 +958,7 @@ export default {
   color: #fff5f9;
 }
 .LittleBoxDark:hover {
-  color: #fcdd61;
+  color: #f7bf07;
 }
 
 .transition {
