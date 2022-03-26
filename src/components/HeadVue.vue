@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div>
+    <!-- <div>
       <img
         src="../pic/star/StarBackground1.png"
         alt=""
@@ -16,7 +16,7 @@
         alt=""
         class="StarBackground3"
       />
-    </div>
+    </div> -->
     <nav :class="[light ? 'navLight' : 'navDark']" class="transition">
       <div class="l1 transition" :class="[light ? 'boxLight' : 'boxDark']">
         <img src="../pic/logo_starmap.png" title="StarMap" class="StarMap" />

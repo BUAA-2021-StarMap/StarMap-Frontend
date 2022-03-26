@@ -1,34 +1,75 @@
 <template>
   <div id="search" class="bg">
-    <!-- 搜索框部分 -->
-    <header>
+    <img
+      src="../pic/star/StarBackground1.png"
+      alt=""
+      class="StarBackground1"
+      v-if="light"
+    />
+    <img
+      src="../pic/star/StarBackgroundBlue1.png"
+      alt=""
+      class="StarBackground1"
+      v-if="dark"
+    />
+    <img
+      src="../pic/star/StarBackground2.png"
+      alt=""
+      class="StarBackground2"
+      v-if="light"
+    />
+    <img
+      src="../pic/star/StarBackgroundBlue2.png"
+      alt=""
+      class="StarBackground2"
+      v-if="dark"
+    />
+    <div>
       <img
-        src="../pic/logo_light.png"
-        @click="changeDark"
+        src="../pic/star/StarBackground3.png"
+        alt=""
+        class="StarBackground3"
         v-if="light"
-        class="change outline"
       />
+    </div>
+    <div>
+      <img
+        src="../pic/star/StarBackgroundBlue3.png"
+        alt=""
+        class="StarBackground3"
+        v-if="dark"
+      />
+    </div>
+    <!-- 搜索框部分 -->
+    <header class="SearchInput">
       <img
         src="../pic/logo_dark.png"
-        @click="changeLight"
+        @click="changeDark"
         v-if="dark"
         class="change outline"
       />
-      <input
-        type="text"
-        class="outline transition inputLight"
+      <img
+        src="../pic/logoYellow.png"
+        @click="changeLight"
+        v-if="light"
+        class="change outline"
+      />
+      <el-input
         placeholder="请输入问题"
         v-model="message"
+        clearable
         v-if="light"
-      />
+        class="outline transition inputLight"
+      >
+      </el-input>
+
       <v-card-actions>
-        <input
-          type="text"
+        <el-input
           class="outline transition inputDark"
           placeholder="请输入tag"
           v-model="tag"
           v-if="dark"
-        />
+        ></el-input>
         <button
           @click="ShowTag"
           class="outline icomoon TagButton transition"
@@ -53,162 +94,191 @@
         </div>
       </v-expand-transition>
       <!-- <div class="outline tag"></div> -->
-      <button
-        class="icomoon outline transition searchLight"
-        @click="SendMessage"
-        v-if="light"
-      >
-        
-      </button>
-      <button
-        class="icomoon outline transition searchDark"
-        @click="SendTag"
-        v-if="dark"
-      >
-        
-      </button>
+      <el-row>
+        <el-button
+          class="icomoon outline transition searchDark"
+          @click="SendMessage"
+          v-if="light"
+          icon="el-icon-search"
+          circle
+        ></el-button>
+        <el-button
+          class="icomoon outline transition searchLight"
+          @click="SendTag"
+          v-if="dark"
+          icon="el-icon-search"
+          circle
+        ></el-button>
+      </el-row>
     </header>
     <headerhb />
-    <!-- 排行榜部分 -->
-    <section class="leaderboard" :class="[light ? 'blockLight' : 'blockDark']">
-      <p class="BlockTitle">
-        <a
-          href="/sort"
-          v-text="light ? 'Commits Rank' : 'Followers Rank'"
-          :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
-          class="transition"
-        ></a>
-      </p>
-      <p class="RankText RankOne">
-        <span
-          class="icomoon transition"
-          :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
-          > 1</span
-        >
-        <a href="#">
-          <img :src="AvatarOne" alt="" class="LittleAvatar" />
-        </a>
-        <a href="#" :class="[light ? 'blockLinkLight' : 'blockLinkDark']">{{
-          PersonOne
-        }}</a>
-      </p>
 
-      <p class="RankText RankTwo">
-        <span
-          class="icomoon transition"
-          :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
-          > 2</span
-        >
-        <a href="#">
-          <img :src="AvatarTwo" alt="" class="LittleAvatar" />
-        </a>
-        <a href="#" :class="[light ? 'blockLinkLight' : 'blockLinkDark']">{{
-          PersonTwo
-        }}</a>
-      </p>
+    <el-container>
+      <!-- 排行榜部分 -->
+      <el-main
+        class="leaderboard"
+        :class="[light ? 'blockLight' : 'blockDark']"
+      >
+        <p class="BlockTitle">
+          <a
+            href="/sort"
+            v-text="light ? 'Commits Rank' : 'Followers Rank'"
+            :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
+            class="transition"
+          ></a>
+        </p>
+        <p class="RankText RankOne">
+          <a href="#">
+            <img
+              :src="AvatarOne"
+              alt=""
+              :class="[light ? 'LittleAvatarLight' : 'LittleAvatarDark']"
+            /> </a
+          ><br />
+          <span
+            class="icomoon transition"
+            :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
+            >&nbsp;</span
+          >
+          <a href="#" :class="[light ? 'blockLinkLight' : 'blockLinkDark']">{{
+            PersonOne
+          }}</a>
+        </p>
 
-      <p class="RankText RankThree">
-        <span
-          class="icomoon transition"
-          :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
-          > 3</span
-        >
-        <a href="#">
-          <img :src="AvatarThree" alt="" class="LittleAvatar" />
-        </a>
-        <a href="#" :class="[light ? 'blockLinkLight' : 'blockLinkDark']">{{
-          PersonThree
-        }}</a>
-      </p>
+        <p class="RankText RankTwo">
+          <a href="#">
+            <img
+              :src="AvatarTwo"
+              alt=""
+              :class="[light ? 'LittleAvatarLight' : 'LittleAvatarDark']"
+            /> </a
+          ><br />
+          <span
+            class="icomoon transition"
+            :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
+            >&nbsp;</span
+          >
+          <a href="#" :class="[light ? 'blockLinkLight' : 'blockLinkDark']">{{
+            PersonTwo
+          }}</a>
+        </p>
 
-      <p class="RankText RankFour">
-        <span
-          class="icomoon transition"
-          :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
-          > 4</span
-        >
-        <a href="#">
-          <img :src="AvatarFour" alt="" class="LittleAvatar" />
-        </a>
-        <a href="#" :class="[light ? 'blockLinkLight' : 'blockLinkDark']">{{
-          PersonFour
-        }}</a>
-      </p>
+        <p class="RankText RankThree">
+          <a href="#">
+            <img
+              :src="AvatarThree"
+              alt=""
+              :class="[light ? 'LittleAvatarLight' : 'LittleAvatarDark']"
+            /> </a
+          ><br />
+          <span
+            class="icomoon transition"
+            :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
+            >&nbsp;</span
+          >
+          <a href="#" :class="[light ? 'blockLinkLight' : 'blockLinkDark']">{{
+            PersonThree
+          }}</a>
+        </p>
 
-      <p class="RankText RankFive">
-        <span
-          class="icomoon transition"
-          :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
-          > 5</span
-        >
-        <a href="#">
-          <img :src="AvatarFive" alt="" class="LittleAvatar" />
-        </a>
-        <a href="#" :class="[light ? 'blockLinkLight' : 'blockLinkDark']">{{
-          PersonFour
-        }}</a>
-      </p>
-    </section>
-    <!-- 论坛部分 -->
-    <section class="forum" :class="[light ? 'blockLight' : 'blockDark']">
-      <p class="BlockTitle">
-        <a
-          href="/forum"
-          :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
-          class="transition"
-          >论坛</a
-        >
-      </p>
-      <p class="ForumText ForumOne">
-        <span
-          class="icomoon transition"
-          :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
-          > 1</span
-        >
-        <a
-          :href="article1"
-          :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
-          >{{ TitleOne }}</a
-        >
-      </p>
+        <p class="RankText RankFour">
+          <a href="#">
+            <img
+              :src="AvatarFour"
+              alt=""
+              :class="[light ? 'LittleAvatarLight' : 'LittleAvatarDark']"
+            /> </a
+          ><br />
+          <span
+            class="icomoon transition"
+            :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
+            >&nbsp;</span
+          >
+          <a href="#" :class="[light ? 'blockLinkLight' : 'blockLinkDark']">{{
+            PersonFour
+          }}</a>
+        </p>
 
-      <p class="ForumText ForumTwo">
-        <span
-          class="icomoon transition"
-          :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
-          > 2</span
-        >
-        <a
-          :href="article2"
-          :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
-          >{{ TitleTwo }}</a
-        >
-      </p>
+        <p class="RankText RankFive">
+          <a href="#">
+            <img
+              :src="AvatarFive"
+              alt=""
+              :class="[light ? 'LittleAvatarLight' : 'LittleAvatarDark']"
+            /> </a
+          ><br />
+          <span
+            class="icomoon transition"
+            :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
+            >&nbsp;</span
+          >
+          <a href="#" :class="[light ? 'blockLinkLight' : 'blockLinkDark']">{{
+            PersonFour
+          }}</a>
+        </p>
+      </el-main>
+      <!-- 论坛部分 -->
+      <el-main class="forum" :class="[light ? 'blockLight' : 'blockDark']">
+        <p class="BlockTitle">
+          <a
+            href="/forum"
+            :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
+            class="transition"
+            >论坛</a
+          >
+        </p>
 
-      <p class="ForumText ForumThree">
-        <span
-          class="icomoon transition"
-          :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
-          > 3</span
-        >
-        <a
-          :href="article3"
-          :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
-          >{{ TitleThree }}</a
-        >
-      </p>
-    </section>
-    <!-- 数据部分 -->
-    <section class="community" :class="[light ? 'blockLight' : 'blockDark']">
-      <p class="BlockTitle">
-        <a
-          href="#"
-          :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
-          class="transition"
-          >社区分析</a
-        >
-      </p>
-    </section>
+        <p class="ForumText ForumOne">
+          <span
+            class="icomoon transition"
+            :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
+            > 1</span
+          ><br />
+          <a
+            :href="article1"
+            :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
+            >{{ TitleOne }}</a
+          >
+        </p>
+
+        <p class="ForumText ForumTwo">
+          <span
+            class="icomoon transition"
+            :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
+            > 2</span
+          ><br />
+          <a
+            :href="article2"
+            :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
+            >{{ TitleTwo }}</a
+          >
+        </p>
+
+        <p class="ForumText ForumThree">
+          <span
+            class="icomoon transition"
+            :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
+            > 3</span
+          ><br />
+          <a
+            :href="article3"
+            :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
+            >{{ TitleThree }}</a
+          >
+        </p>
+      </el-main>
+      <!-- 数据部分 -->
+      <el-main class="community" :class="[light ? 'blockLight' : 'blockDark']">
+        <p class="BlockTitle">
+          <a
+            href="#"
+            :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
+            class="transition"
+            >社区分析</a
+          >
+        </p>
+      </el-main>
+    </el-container>
   </div>
 </template>
 <script>
@@ -235,8 +305,8 @@ export default {
         },
       ],
       tagsshow: false,
-      logoLight: "<img src='../pic/logo_light.png' class=\"logo\" />",
-      logoDark: "<img src='../pic/logo_dark.png' class=\"logo\" />",
+      logoLight: "<img src='../pic/logo_dark.png' class=\"logo\" />",
+      logoDark: "<img src='../pic/logoYellow.png' class=\"logo\" />",
       light: true,
       dark: false,
       webLogoLight: "../pic/StarMapBlackSmall.png",
@@ -541,7 +611,7 @@ export default {
 .change {
   position: absolute;
   left: calc(50% - 325px);
-  top: 132px;
+  top: 112px;
   width: 70px;
   height: 37px;
   font-size: 20px;
@@ -556,51 +626,49 @@ export default {
   height: 37px;
 }
 
-.inputLight {
+.SearchInput >>> .inputLight {
   position: absolute;
   left: calc(50% - 263px);
-  top: 130px;
-  width: 479px;
-  height: 43px;
-  background-color: #fbfbfb;
+  top: 112px;
+  width: 475px;
+  height: 47px;
+  /* background-color: #fbfbfb;
   font-size: 15px;
   border: 1px solid rgb(197, 197, 197);
-  border-radius: 5px 0 0 5px;
   text-indent: 1em;
-  box-shadow: 2px 2px 50px 2px rgb(228, 228, 228);
+  box-shadow: 2px 2px 50px 2px rgb(228, 228, 228); */
 }
-.inputLight:hover,
-.inputLight:focus {
-  background-color: white;
-  border: 1px solid #ff8f91;
+.SearchInput >>> .inputLight:focus,
+.SearchInput >>> .inputLight:active {
+  border-color: #fcdd61;
 }
 .inputDark {
   position: absolute;
   left: calc(50% - 263px);
-  top: 130px;
-  width: 479px;
-  height: 43px;
-  background-color: #292c30;
+  top: 112px;
+  width: 475px;
+  height: 47px;
+  /* background-color: #292c30;
   font-size: 15px;
   border: 1px solid #7a828e;
   border-radius: 5px 0 0 5px;
   text-indent: 1em;
   color: #c2c2c3;
-  box-shadow: 2px 2px 50px 2px rgb(32, 32, 32);
+  box-shadow: 2px 2px 50px 2px rgb(32, 32, 32); */
 }
-.inputDark:hover,
+/* .inputDark:hover,
 .inputDark:focus {
   background-color: #272b33;
-  border: 1px solid #31d3fe;
+  border: 1px solid #fcdd61;
   color: #f0f3f6;
-}
+} */
 
 .TagButton {
   position: absolute;
-  left: calc(50% + 180px);
-  top: 140px;
+  left: calc(50% + 186px);
+  top: 119px;
   font-size: 23px;
-  color: #ffffff;
+  color: #67deff;
   border: none;
   background-color: transparent;
 }
@@ -608,73 +676,73 @@ export default {
 .searchLight {
   position: absolute;
   left: calc(50% + 214px);
-  top: 130px;
-  width: 46px;
-  height: 43px;
-  background-color: #ff8f91;
+  top: 111px;
+  width: 44px;
+  height: 41px;
+  background-color: #67deff;
   color: white;
   font-size: 15px;
   border: none;
-  border-radius: 0 5px 5px 0;
+  border-radius: 5px 5px 5px 5px;
   box-shadow: 2px 2px 50px 2px rgb(228, 228, 228);
 }
 .searchDark {
   position: absolute;
   left: calc(50% + 214px);
-  top: 130px;
-  width: 46px;
-  height: 43px;
-  background-color: #31d3fe;
-  color: #0a0c10;
+  top: 111px;
+  width: 44px;
+  height: 41px;
+  background-color: #fcdd61;
+  color: white;
   font-size: 15px;
   border: none;
-  border-radius: 0 5px 5px 0;
-  box-shadow: 2px 2px 50px 2px rgb(32, 32, 32);
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 2px 2px 50px 2px rgb(228, 228, 228);
 }
 
 .blockLight {
   position: absolute;
-  top: 280px;
-  height: 350px;
-  width: 284px;
-  border: 1px solid #ff8f91;
-  background-color: white;
+  left: calc(50% - 520px);
+  height: 130px;
+  width: 1040px;
+  border: 1px solid #f7e709;
+  background-color: rgba(254, 248, 239, 0.81);
   opacity: 0.8;
   border-radius: 10px;
-  box-shadow: 2px 2px 50px 2px rgb(228, 228, 228);
+  /* box-shadow: 2px 2px 50px 2px rgb(228, 228, 228); */
 }
 .blockLight:hover {
-  color: #ff8f91;
+  color: #67deff;
 }
 .blockDark {
   position: absolute;
-  top: 280px;
-  height: 350px;
-  width: 284px;
-  border: 1px solid #31d3fe;
+  left: calc(50% - 520px);
+  height: 130px;
+  width: 1040px;
+  border: 1px solid #61ddfc;
   border-radius: 5px;
-  background-color: #272b33;
+  background-color: rgba(239, 251, 254, 0.81);
   opacity: 0.8;
   color: #fff5f9;
-  box-shadow: 2px 2px 50px 2px rgb(32, 32, 32);
+  /* box-shadow: 2px 2px 50px 2px rgb(32, 32, 32); */
 }
 .blockDark:hover {
-  color: #31d3fe;
+  color: #fcdd61;
 }
 
 .blockLinkLight:hover {
-  color: #ff8f91;
+  color: #67deff;
 }
 .blockLinkDark:hover {
-  color: #31d3fe;
+  color: #fcdd61;
 }
 
 .leaderboard {
-  left: calc(50% - 626px);
+  top: 210px;
 }
 
 .forum {
-  left: calc(50% - 142px);
+  top: 380px;
   z-index: 0;
 }
 
@@ -693,21 +761,23 @@ export default {
   font-family: "STSong";
   font-size: 17px;
   text-indent: 1em;
+  width: 300px;
+  top: 50px;
 }
 
 .ForumOne {
   position: absolute;
-  top: 70px;
+  left: 60px;
 }
 
 .ForumTwo {
   position: absolute;
-  top: 135px;
+  left: 360px;
 }
 
 .ForumThree {
   position: absolute;
-  top: 200px;
+  left: 660px;
 }
 
 .RankText {
@@ -718,45 +788,58 @@ export default {
 
 .RankOne {
   position: absolute;
-  top: 70px;
+  top: 45px;
+  left: 60px;
 }
 
 .RankTwo {
   position: absolute;
-  top: 110px;
+  top: 45px;
+  left: 260px;
 }
 
 .RankThree {
   position: absolute;
-  top: 150px;
+  top: 45px;
+  left: 460px;
 }
 
 .RankFour {
   position: absolute;
-  top: 190px;
+  top: 45px;
+  left: 660px;
 }
 
 .RankFive {
   position: absolute;
-  top: 230px;
+  top: 45px;
+  left: 860px;
 }
 
-.LittleAvatar {
+.LittleAvatarLight {
   display: inline-block;
-  height: 35px;
-  width: 35px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
+  border: 1px solid #67deff;
+}
+.LittleAvatarDark {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 1px solid #fcdd61;
 }
 
 .FireAndNumLight {
-  color: #ff8f91;
+  color: #67deff;
 }
 .FireAndNumDark {
-  color: #31d3fe;
+  color: #fcdd61;
 }
 
 .community {
-  left: calc(50% + 342px);
+  top: 550px;
 }
 
 .navLight {
@@ -865,7 +948,7 @@ export default {
   color: black;
 }
 .LittleBoxLight:hover {
-  color: #ff8f91;
+  color: #67deff;
 }
 .LittleBoxDark {
   text-decoration: none;
@@ -875,7 +958,7 @@ export default {
   color: #fff5f9;
 }
 .LittleBoxDark:hover {
-  color: #31d3fe;
+  color: #fcdd61;
 }
 
 .transition {
@@ -920,7 +1003,7 @@ a {
 }
 
 a:hover {
-  color: #ff8f91;
+  color: #67deff;
 }
 
 button,
