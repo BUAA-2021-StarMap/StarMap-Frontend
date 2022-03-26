@@ -109,7 +109,7 @@
                   v-model="com.body"
                   max-length="1000"
                   readonly="true"
-                  rows="3"
+                  rows="4"
                 ></el-input>
               </v-row>
               <v-row class="TLrow3">
@@ -508,7 +508,7 @@ export default {
   text-align: right;
 }
 .reply-btn {
-  background-color: #61a0a8;
+  background-color: #67deff;
   color: white;
 }
 /*评论们 */
@@ -521,7 +521,7 @@ export default {
   display: inline-block;
   width: 100%;
   text-align: left;
-  color: #d87c7c;
+  color: #ddb619;
 }
 .TLcard {
   min-height: 25vh;
@@ -530,7 +530,7 @@ export default {
 /*名字 */
 .TLrow1 {
   height: 6vh;
-  color: #61a0a8;
+  color: #67deff;
   font-size: x-large;
   font-weight: bold;
   font-style: italic;
@@ -549,7 +549,7 @@ export default {
 }
 /*滚动条 */
 .res-btn {
-  color: #61a0a8;
+  color: #67deff;
   border: none;
   background-color: unset;
 }
