@@ -45,6 +45,7 @@ const routes = [
     name: 'ForumDetails',
     component: () => import('../views/ForumDetails.vue')
   }, {
+    //over
     path: '/forum/:articleId/edit',
     name: 'ForumEdit',
     component: () => import('../views/ForumEdit.vue')

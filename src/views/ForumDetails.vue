@@ -436,22 +436,22 @@ export default {
 }
 /*弹窗回复按钮 */
 .res-sub-btn {
-  background-color: #61a0a8;
+  background-color: #67deff;
 }
 /*确定删除？字样 */
 .alerttitle {
   margin-bottom: 5vh;
 }
 .confirm {
-  background-color: #61a0a8;
+  background-color: #67deff;
 }
 .goback {
-  background-color: #61a0a8;
+  background-color: #67deff;
 }
 .article-delete-btn {
   margin-right: 0vw;
   border: unset;
-  color: #61a0a8;
+  color: #67deff;
 }
 .maplow {
   z-index: 1;
@@ -479,7 +479,7 @@ export default {
   background-color: rgba(254, 248, 239, 0.81);
 }
 .mdtitle {
-  color: #61a0a8;
+  color: #67deff;
   font-size: xx-large;
 }
 /*md文档 */
