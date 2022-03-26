@@ -1,5 +1,22 @@
 <template>
   <div>
+    <div>
+      <img
+        src="../pic/star/StarBackground1.png"
+        alt=""
+        class="StarBackground1"
+      />
+      <img
+        src="../pic/star/StarBackground2.png"
+        alt=""
+        class="StarBackground2"
+      />
+      <img
+        src="../pic/star/StarBackground3.png"
+        alt=""
+        class="StarBackground3"
+      />
+    </div>
     <headerhb />
     <div class="m-container">
       <div class="subhead">
@@ -133,6 +150,30 @@ export default {
 </script>
 
 <style scoped>
+.StarBackground1 {
+  position: absolute;
+  top: 320px;
+  left: 260px;
+  background-color: transparent;
+  height: 400px;
+  z-index: -1;
+}
+.StarBackground2 {
+  position: absolute;
+  top: 70px;
+  left: 950px;
+  background-color: transparent;
+  height: 400px;
+  z-index: -1;
+}
+.StarBackground3 {
+  opacity: 0.8;
+  position: absolute;
+  left: 70px;
+  top: -70px;
+  width: 1460px;
+  z-index: -1;
+}
 .messages {
   font-family: "STXinwei";
   font-size: 2vh;
