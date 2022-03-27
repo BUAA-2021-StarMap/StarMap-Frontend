@@ -560,6 +560,8 @@ export default {
   margin-right: 0.5vw;
   padding-left: 0.3vw;
   padding-right: 0.3vw;
+  font-family:  icomoon;
+  color: #6a6e73;
   float: left;
 }
 .icomoon {
