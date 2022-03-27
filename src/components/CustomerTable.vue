@@ -17,7 +17,7 @@
               >
                 <!-- 头部 -->
                 <template v-slot:header>
-                  <v-toolbar dark color="rgba(239,161,141,0.8)" class="mb-1">
+                  <v-toolbar dark color="rgb(103, 222, 255,0.8)" class="mb-1">
                     <!-- 搜索 -->
                     <v-text-field
                       v-model="search"
@@ -43,7 +43,7 @@
                         <v-btn
                           large
                           depressed
-                          color="rgba(239,161,141)"
+                          color="rgb(103, 222, 255)"
                           :value="false"
                         >
                           <!-- <v-icon>mdi-arrow-up</v-icon> -->
@@ -52,7 +52,8 @@
                         <v-btn
                           large
                           depressed
-                          color="rgba(239,161,141)"
+                          
+                          color="rgb(103, 222, 255)"
                           :value="true"
                         >
                           <!-- <v-icon>mdi-arrow-down</v-icon> -->
@@ -73,7 +74,7 @@
                       md="4"
                       lg="3"
                     >
-                      <v-card>
+                      <v-card  class="tablecard">
                         <!-- 表格的头部 -->
                         <v-row>
                           <!-- 头像 -->
@@ -149,35 +150,35 @@
                         </v-card-title>
                         <div class="tokens" style="height: 17vh">
                           <v-chip
-                            color="rgba(110,112,116,0.77)"
+                            color="rgb(103, 222, 255,0.8)"
                             text-color="white"
                             class="chips"
                             v-if="item['TAG1'] == ''?false:true" 
                             >{{ item["TAG1"] }}</v-chip
                           >
                           <v-chip
-                            color="rgba(110,112,116,0.77)"
+                            color="rgb(103, 222, 255,0.8)"
                             text-color="white"
                             class="chips"
                             v-if="item['TAG2'] == ''?false:true" 
                             >{{ item["TAG2"] }}</v-chip
                           >
                           <v-chip
-                            color="rgba(110,112,116,0.77)"
+                            color="rgb(103, 222, 255,0.8)"
                             text-color="white"
                             class="chips"
                             v-if="item['TAG3'] == ''?false:true" 
                             >{{ item["TAG3"] }}</v-chip
                           >
                           <v-chip
-                            color="rgba(110,112,116,0.77)"
+                            color="rgb(103, 222, 255,0.8)"
                             text-color="white"
                             class="chips"
                              v-if="item['TAG4'] == ''?false:true" 
                             >{{ item["TAG4"] }}</v-chip
                           >
                           <v-chip
-                            color="rgba(110,112,116,0.77)"
+                            color="rgb(103, 222, 255,0.8)"
                             text-color="white"
                             class="chips"
                              v-if="item['TAG5'] == ''?false:true" 
@@ -422,6 +423,28 @@ export default {
 };
 </script>
 <style scoped>
+
+/*
+To siri:
+可能要改的地方以及位置：
+1 上边那个搜索条  这个要在上面改 crtl+f搜索toolbar 在那个color属性中进行修改
+2 升序降序按钮  这个要在上面改 crtl+f搜索升序 那两个btn的color改掉就行 最好和toolbar的颜色一致
+               而且没有透明度
+3 下面card的背景 在下面改 。tablecard 和。list一起改
+4 两个标题 name和tokens 在下面改 class为subheading
+5 四个参数的字体样式颜色 在下方Eachitem中改
+6 chips 这个边距什么的在下面chips中改 背景颜色 字体颜色到上面改 crtl+f搜索TAG1
+        那五个chip一起改 多行一起修改方法如下：
+        按住Alt按键 鼠标分别点不同位置 就可以在多个位置同时修改 要是中途滚动记得松开
+        alt按键 滚动完再按住alt按键去点鼠标 可以接上
+
+
+
+
+*/
+
+
+/*让头像居中 */
 .imgwarp {
   padding-top: 2.7vh;
   padding-left: 2vw;
@@ -443,10 +466,22 @@ export default {
   padding-bottom: 5vh;
   /* background-color: #efa18d; */
 }
+
+
+/*下面两个background一起改动 能使card的背景一块变化 现在是浅蓝色背景 */
+
+
+.tablecard{
+  background-color:rgba(239, 251, 254, 0.81);
+}
 .list{
+  background-color:rgba(239, 251, 254, 0.81);
   margin-bottom: 3vh;
 }
 .EachItem {
+  font-family: "FZShuTi";
+  color: rgb(247, 191, 7);
+  font-size: 17px;
   height: 5vh;
 }
 .table_card {
@@ -457,6 +492,11 @@ export default {
 }
 .tablebody {
   margin-top: 1vh;
+}
+.subheading{
+  color:rgb(137, 138, 128);
+  font-family: "FZShuTi";
+  font-size: 25px;
 }
 .itemf{
   padding-left: 4vw;
