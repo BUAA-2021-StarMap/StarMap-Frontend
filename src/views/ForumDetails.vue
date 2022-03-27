@@ -522,6 +522,7 @@ export default {
 }
 .mdtitle {
   color: #67deff;
+  font-family: STXinwei;
   font-size: xx-large;
 }
 /*md文档 */
@@ -594,5 +595,9 @@ export default {
   color: #67deff;
   border: none;
   background-color: unset;
+}
+
+.cardtitle {
+  font-family: STXinwei;
 }
 </style>
