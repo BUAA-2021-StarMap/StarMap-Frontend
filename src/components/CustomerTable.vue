@@ -3,7 +3,7 @@
     <v-app id="inspire">
       <headhb />
       <v-row>
-        <v-col class="warp">
+        <v-col class="warp BigBox">
           <v-card class="table_card">
             <v-container fluid>
               <v-data-iterator
@@ -17,7 +17,7 @@
               >
                 <!-- 头部 -->
                 <template v-slot:header>
-                  <v-toolbar dark color="rgb(103, 222, 255,0.8)" class="mb-1">
+                  <v-toolbar dark color="rgba(153, 230, 252, 0.8)" class="mb-1">
                     <!-- 搜索 -->
                     <v-text-field
                       v-model="search"
@@ -39,12 +39,17 @@
                         label="Sort by"
                       ></v-select>
                       <v-spacer></v-spacer>
-                      <v-btn-toggle v-model="sortDesc" mandatory>
+                      <v-btn-toggle
+                        v-model="sortDesc"
+                        mandatory
+                        style="border: none !important"
+                      >
                         <v-btn
                           large
                           depressed
-                          color="rgb(103, 222, 255)"
+                          color="rgb(94, 220, 255)"
                           :value="false"
+                          style="border: none !important"
                         >
                           <!-- <v-icon>mdi-arrow-up</v-icon> -->
                           <div>升序</div>
@@ -52,9 +57,9 @@
                         <v-btn
                           large
                           depressed
-                          
-                          color="rgb(103, 222, 255)"
+                          color="rgb(94, 220, 255)"
                           :value="true"
+                          style="border: none !important"
                         >
                           <!-- <v-icon>mdi-arrow-down</v-icon> -->
                           <div>降序</div>
@@ -74,7 +79,7 @@
                       md="4"
                       lg="3"
                     >
-                      <v-card  class="tablecard">
+                      <v-card class="tablecard">
                         <!-- 表格的头部 -->
                         <v-row>
                           <!-- 头像 -->
@@ -123,7 +128,6 @@
                               <v-col class="itemf">
                                 <v-list-item-content
                                   :class="{ 'blue--text': sortBy === key }"
-                                  
                                 >
                                   {{ transform(key) }}:
                                 </v-list-item-content>
@@ -150,38 +154,38 @@
                         </v-card-title>
                         <div class="tokens" style="height: 17vh">
                           <v-chip
-                            color="rgb(103, 222, 255,0.8)"
+                            color="rgba(93, 217, 252, 0.8)"
                             text-color="white"
                             class="chips"
-                            v-if="item['TAG1'] == ''?false:true" 
+                            v-if="item['TAG1'] == '' ? false : true"
                             >{{ item["TAG1"] }}</v-chip
                           >
                           <v-chip
-                            color="rgb(103, 222, 255,0.8)"
+                            color="rgba(93, 217, 252, 0.8)"
                             text-color="white"
                             class="chips"
-                            v-if="item['TAG2'] == ''?false:true" 
+                            v-if="item['TAG2'] == '' ? false : true"
                             >{{ item["TAG2"] }}</v-chip
                           >
                           <v-chip
-                            color="rgb(103, 222, 255,0.8)"
+                            color="rgba(93, 217, 252, 0.8)"
                             text-color="white"
                             class="chips"
-                            v-if="item['TAG3'] == ''?false:true" 
+                            v-if="item['TAG3'] == '' ? false : true"
                             >{{ item["TAG3"] }}</v-chip
                           >
                           <v-chip
-                            color="rgb(103, 222, 255,0.8)"
+                            color="rgba(93, 217, 252, 0.8)"
                             text-color="white"
                             class="chips"
-                             v-if="item['TAG4'] == ''?false:true" 
+                            v-if="item['TAG4'] == '' ? false : true"
                             >{{ item["TAG4"] }}</v-chip
                           >
                           <v-chip
-                            color="rgb(103, 222, 255,0.8)"
+                            color="rgba(93, 217, 252, 0.8)"
                             text-color="white"
                             class="chips"
-                             v-if="item['TAG5'] == ''?false:true" 
+                            v-if="item['TAG5'] == '' ? false : true"
                             >{{ item["TAG5"] }}</v-chip
                           >
                           <!-- <v-chip
@@ -235,11 +239,11 @@
                     </span>
                     <!-- 前进后退按钮 -->
                     <v-btn class="pagebtn" depressed @click="formerPage">
-                      <div>上一页</div>
+                      <div class="LandN">上一页</div>
                     </v-btn>
 
                     <v-btn class="pagebtn" depressed @click="nextPage">
-                      <div>下一页</div>
+                      <div class="LandN">下一页</div>
                     </v-btn>
                   </v-row>
                 </template>
@@ -423,7 +427,6 @@ export default {
 };
 </script>
 <style scoped>
-
 /*
 To siri:
 可能要改的地方以及位置：
@@ -437,15 +440,13 @@ To siri:
         那五个chip一起改 多行一起修改方法如下：
         按住Alt按键 鼠标分别点不同位置 就可以在多个位置同时修改 要是中途滚动记得松开
         alt按键 滚动完再按住alt按键去点鼠标 可以接上
-
-
-
-
 */
-
-
+.LandN {
+  color: rgb(218, 167, 0);
+}
 /*让头像居中 */
 .imgwarp {
+  color: rgb(255, 251, 200);
   padding-top: 2.7vh;
   padding-left: 2vw;
   display: flex;
@@ -460,27 +461,30 @@ To siri:
   align-self: center; */
 }
 .warp {
+  position: absolute;
+  top: 8.5vh;
   padding-left: 5vw;
   padding-right: 5vw;
-  padding-top: 7.85vh;
+  /* padding-top: 7.85vh; */
   padding-bottom: 5vh;
   /* background-color: #efa18d; */
 }
-
+.BigBox {
+  opacity: 0.75;
+}
 
 /*下面两个background一起改动 能使card的背景一块变化 现在是浅蓝色背景 */
 
-
-.tablecard{
-  background-color:rgba(239, 251, 254, 0.81);
+.tablecard {
+  background-color: rgba(239, 251, 254, 0.81);
 }
-.list{
-  background-color:rgba(239, 251, 254, 0.81);
+.list {
+  background-color: rgba(239, 251, 254, 0.81);
   margin-bottom: 3vh;
 }
 .EachItem {
   font-family: "FZShuTi";
-  color: rgb(247, 191, 7);
+  color: rgb(218, 167, 0);
   font-size: 17px;
   height: 5vh;
 }
@@ -493,22 +497,22 @@ To siri:
 .tablebody {
   margin-top: 1vh;
 }
-.subheading{
-  color:rgb(137, 138, 128);
+.subheading {
+  color: rgb(137, 138, 128);
   font-family: "FZShuTi";
   font-size: 25px;
 }
-.itemf{
+.itemf {
   padding-left: 4vw;
 }
-.items{
+.items {
   margin-left: 0vw;
   padding-right: 0vw;
 }
 #Tokentitle {
   padding-bottom: 1vh;
 }
-.tokens{
+.tokens {
   padding-left: 1vw;
 }
 .chips {
