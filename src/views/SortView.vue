@@ -440,6 +440,7 @@ export default {
   border-radius: 6px;
   overflow: hidden;
   position: relative;
+  opacity: 0.75;
 }
 .box-card h1 {
   /* 这里实际上就是控制子元素 .addtional .general 下的h1 */
@@ -454,7 +455,7 @@ export default {
   height: 100%;
   /* background: linear-gradient(#dE685E, #EE786E); */
   /* background: linear-gradient(rgb(245, 186, 186), rgb(255, 216, 216)); */
-  background: linear-gradient(rgb(255, 194, 194), rgb(255, 216, 216));
+  background: linear-gradient(rgb(194, 253, 255), rgb(216, 249, 255));
   /* background: linear-gradient(rgb(255, 216, 216), rgb(255, 216, 216)); */
   /* 这里是弹出后收回的过渡 */
   transition: width 0.4s;
@@ -496,7 +497,7 @@ export default {
 .box-card .additional .user-card .level,
 .box-card .additional .user-card .points {
   top: 15%;
-  color: #fff;
+  color: rgb(255, 252, 228);
   text-transform: uppercase;
   font-size: 0.75em;
   font-weight: bold;
@@ -520,13 +521,13 @@ export default {
   height: 100%;
 }
 .box-card .additional .more-info h1 {
-  color: #fff;
+  color: rgb(223, 213, 126);
   margin-bottom: 5px;
 }
 
 .box-card .additional .coords {
   margin: 0 1rem;
-  color: #fff;
+  color: rgb(223, 213, 126);
   /* font-size: 1rem; */
   font-size: 2.2vh;
 }
@@ -544,7 +545,7 @@ export default {
   left: 1rem;
   right: 1rem;
   top: auto;
-  color: #fff;
+  color: rgb(223, 213, 126);
 }
 
 .box-card .additional .stats > div {
