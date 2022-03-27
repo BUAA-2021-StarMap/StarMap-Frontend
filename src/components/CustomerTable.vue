@@ -425,14 +425,16 @@ export default {
 .imgwarp {
   padding-top: 2.7vh;
   padding-left: 2vw;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 .inspire {
   margin-top: 21vh;
 }
 .touxiang {
-  margin-top: calc(50%-45vw);
-  align-self: center;
+  /* margin-top: calc(50%-45vw);
+  align-self: center; */
 }
 .warp {
   padding-left: 5vw;
