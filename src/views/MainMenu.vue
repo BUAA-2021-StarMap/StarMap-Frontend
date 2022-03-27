@@ -408,10 +408,7 @@ export default {
       this.$axios
         .post("/index/", {
           op: 0, //	# 第几类搜索					0-第一类  1-第二类
-          isSearch: 1, //	# 是添加标签还是搜索用户		0-添加标签	1-搜索成员
-          isAnd: 1, ////	# 是或还是和					0-或		1-和
-          tag: "vue", //	# 在添加标签的环节中(isSearch==0)	是用户输入的模糊标签
-          allTagList: that.message,
+          content: that.message,
         })
         .then((res) => {
           console.log(res);
@@ -549,16 +546,20 @@ export default {
 /*给下拉表设置位置 */
 .expand_for_tags {
   position: absolute;
-  left: calc(50% - 267px);
-  top: 177px;
-  width: 600px;
-
+  left: calc(50% - 262px);
+  top: 150px;
+  width: 520px;
+  border-radius: 10px;
+  background-color:  rgb(103, 222, 255,0.5) ;
   z-index: 2;
 }
 .EachTag {
   margin-left: 0.5vw;
+  margin-top: 0.5vh;
+  margin-bottom: 0.5vh;
   margin-right: 0.5vw;
-
+  padding-left: 0.3vw;
+  padding-right: 0.3vw;
   float: left;
 }
 .icomoon {
