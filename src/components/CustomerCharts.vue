@@ -212,10 +212,6 @@ export default {
       let comdata = this.getType(3);
       let issdata = this.getType(4);
       // console.log(xdata);
-      // console.log(fandata);
-      // console.log(pulldata);
-      // console.log(comdata);
-      // console.log(issdata);
       //三个指标进行堆积
       mycharts1.setOption({
         title: {
@@ -272,6 +268,12 @@ export default {
           },
         ],
       });
+      //Fans
+      let ans=[],i=0;
+      for(;i<xdata.length;i++){
+        ans[i]={value: fandata[i],name: xdata[i]};
+      }
+      console.log(ans);
       mycharts2.setOption({
         title: {
           text: "粉丝数分析",
@@ -290,18 +292,19 @@ export default {
             name: "粉丝数",
             type: "pie",
             radius: "50%",
-            data: [
-              { value: fandata[0], name: xdata[0]},//+" : "+fandata[0] },
-              { value: fandata[1], name: xdata[1]},//+" : "+fandata[1] },
-              { value: fandata[2], name: xdata[2]},//+" : "+fandata[2] },
-              { value: fandata[3], name: xdata[3]},//+" : "+fandata[3] },
-              { value: fandata[4], name: xdata[4]},//+" : "+fandata[4] },
-              { value: fandata[5], name: xdata[5]},//+" : "+fandata[5] },
-              { value: fandata[6], name: xdata[6]},//+" : "+fandata[6] },
-              { value: fandata[7], name: xdata[7]},//+" : "+fandata[7] },
-              { value: fandata[8], name: xdata[8]},//+" : "+fandata[8] },
-              { value: fandata[9], name: xdata[9]},//+" : "+fandata[9] },
-            ],
+            data: ans,
+            // [
+            //   { value: fandata[0], name: xdata[0]},//+" : "+fandata[0] },
+            //   { value: fandata[1], name: xdata[1]},//+" : "+fandata[1] },
+            //   { value: fandata[2], name: xdata[2]},//+" : "+fandata[2] },
+            //   { value: fandata[3], name: xdata[3]},//+" : "+fandata[3] },
+            //   { value: fandata[4], name: xdata[4]},//+" : "+fandata[4] },
+            //   { value: fandata[5], name: xdata[5]},//+" : "+fandata[5] },
+            //   { value: fandata[6], name: xdata[6]},//+" : "+fandata[6] },
+            //   { value: fandata[7], name: xdata[7]},//+" : "+fandata[7] },
+            //   { value: fandata[8], name: xdata[8]},//+" : "+fandata[8] },
+            //   { value: fandata[9], name: xdata[9]},//+" : "+fandata[9] },
+            // ],
             emphasis: {
               itemStyle: {
                 shadowBlur: 10,
