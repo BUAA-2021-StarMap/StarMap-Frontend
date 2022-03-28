@@ -403,6 +403,7 @@ export default {
     SendMessage: function () {
       var that = this;
       let uid = user.getters.getUser(user.state()).user.uid;
+      let uname = user.getters.getUser(user.state()).user.username;
       console.log(uid);
       //let tags = that.message.split(" ");
       this.$axios
@@ -415,6 +416,7 @@ export default {
           that.$store.dispatch("saveUserInfo", {
             user: {
               uid: uid,
+              username: uname,
               search: res.data.allMemberList,
             },
           });
@@ -443,6 +445,7 @@ export default {
     SendTag: function () {
       var that = this;
       let uid = user.getters.getUser(user.state()).user.uid;
+      let uname = user.getters.getUser(user.state()).user.username;
       let alltags = this.tag.split(";");
       console.log("alltags:" + alltags);
       console.log(uid);
@@ -460,6 +463,7 @@ export default {
             that.$store.dispatch("saveUserInfo", {
               user: {
                 uid: uid,
+                username: uname,
                 search: res.data.allMemberList,
               },
             });

@@ -125,7 +125,7 @@
                   type="textarea"
                   v-model="com.body"
                   max-length="1000"
-                  readonly="true"
+                  :readonly= "true"
                   rows="4"
                 ></el-input>
               </v-row>

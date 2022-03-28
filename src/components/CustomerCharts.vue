@@ -161,7 +161,7 @@ export default {
       let i = 0;
       for (; i < this.items.length; ) {
         let key = this.items[i];
-        a[i] = key["LOGIN"];
+        a[i] = key["NAME"];
         b[i] = key["FOLLOWERS_COUNT"];
         c[i] = key["PULLS_COUNT"];
         d[i] = key["COMMITS_COUNT"];
