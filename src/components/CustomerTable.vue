@@ -2,7 +2,7 @@
   <div id="app">
     <v-app id="inspire">
       <headhb />
-      <v-row>
+      <v-row class="tablefirst">
         <v-col class="warp BigBox">
           <v-card class="table_card">
             <v-container fluid>
@@ -460,8 +460,11 @@ To siri:
   /* margin-top: calc(50%-45vw);
   align-self: center; */
 }
+.tablefirst{
+  margin-top: 4.5vw;
+}
 .warp {
-  position: absolute;
+  /* position: absolute; */
   top: 8.5vh;
   padding-left: 5vw;
   padding-right: 5vw;
