@@ -4,7 +4,11 @@
     <v-row>
       <v-col class="fpic">
         <v-card class="pic_card">
-          <div class="pic" id="fone" style="width: 70vw; height: 50vh ; align: center" ></div>
+          <div
+            class="pic"
+            id="fone"
+            style="width: 70vw; height: 50vh; align: center"
+          ></div>
         </v-card>
       </v-col>
     </v-row>
@@ -19,7 +23,7 @@
   </div>
 </template>
 <script>
-import user from '@/store/user'
+import user from "@/store/user";
 import themeone from "../style/theme";
 export default {
   name: "CustomerCharts",
@@ -291,16 +295,16 @@ export default {
             type: "pie",
             radius: "50%",
             data: [
-              { value: fandata[0], name: xdata[0]},//+" : "+fandata[0] },
-              { value: fandata[1], name: xdata[1]},//+" : "+fandata[1] },
-              { value: fandata[2], name: xdata[2]},//+" : "+fandata[2] },
-              { value: fandata[3], name: xdata[3]},//+" : "+fandata[3] },
-              { value: fandata[4], name: xdata[4]},//+" : "+fandata[4] },
-              { value: fandata[5], name: xdata[5]},//+" : "+fandata[5] },
-              { value: fandata[6], name: xdata[6]},//+" : "+fandata[6] },
-              { value: fandata[7], name: xdata[7]},//+" : "+fandata[7] },
-              { value: fandata[8], name: xdata[8]},//+" : "+fandata[8] },
-              { value: fandata[9], name: xdata[9]},//+" : "+fandata[9] },
+              { value: fandata[0], name: xdata[0] }, //+" : "+fandata[0] },
+              { value: fandata[1], name: xdata[1] }, //+" : "+fandata[1] },
+              { value: fandata[2], name: xdata[2] }, //+" : "+fandata[2] },
+              { value: fandata[3], name: xdata[3] }, //+" : "+fandata[3] },
+              { value: fandata[4], name: xdata[4] }, //+" : "+fandata[4] },
+              { value: fandata[5], name: xdata[5] }, //+" : "+fandata[5] },
+              { value: fandata[6], name: xdata[6] }, //+" : "+fandata[6] },
+              { value: fandata[7], name: xdata[7] }, //+" : "+fandata[7] },
+              { value: fandata[8], name: xdata[8] }, //+" : "+fandata[8] },
+              { value: fandata[9], name: xdata[9] }, //+" : "+fandata[9] },
             ],
             emphasis: {
               itemStyle: {
@@ -318,9 +322,9 @@ export default {
     this.initcharts();
     console.log("entermounted");
   },
-  created(){
-    this.items= user.getters.getUser(user.state()).user.search;
-  }
+  created() {
+    this.items = user.getters.getUser(user.state()).user.search;
+  },
 };
 </script>
 <style scoped>
@@ -337,7 +341,7 @@ export default {
   padding-top: 2vh;
   padding-bottom: 2vh;
 }
-.pic{
+.pic {
   align-content: center;
 }
 .ffan {
