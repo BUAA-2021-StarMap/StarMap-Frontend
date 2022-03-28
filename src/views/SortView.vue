@@ -60,7 +60,12 @@
               <!-- 左半部分展示用户主要信息和头像 -->
               <div class="user-card">
                 <div class="level center">ID: {{ msg.ID }}</div>
-                <img :src="msg.AVATAR_URL" alt="用户头像" class="center" />
+                <img
+                  :src="msg.AVATAR_URL"
+                  @error="downloadError()"
+                  alt="用户头像"
+                  class="center"
+                />
                 <div class="points center">{{ msg.STARS_COUNT }} Stars</div>
               </div>
               <!-- 弹出后的右半部分展示用户的信息 -->
@@ -182,6 +187,12 @@ export default {
     };
   },
   methods: {
+    //头像加载失败
+    downloadError() {
+      let img = event.srcElement;
+      img.src = require("@/pic/photo.png");
+      img.onerror = null; //防止闪图
+    },
     indexMethod(index) {
       return (this.currentPage - 1) * this.pageSize + index;
     },

@@ -131,6 +131,7 @@
           <a href="#">
             <img
               :src="AvatarOne"
+              @error="imgError()"
               alt=""
               :class="[light ? 'LittleAvatarLight' : 'LittleAvatarDark']"
             /> </a
@@ -149,6 +150,7 @@
           <a href="#">
             <img
               :src="AvatarTwo"
+              @error="imgError()"
               alt=""
               :class="[light ? 'LittleAvatarLight' : 'LittleAvatarDark']"
             /> </a
@@ -167,6 +169,7 @@
           <a href="#">
             <img
               :src="AvatarThree"
+              @error="imgError()"
               alt=""
               :class="[light ? 'LittleAvatarLight' : 'LittleAvatarDark']"
             /> </a
@@ -185,6 +188,7 @@
           <a href="#">
             <img
               :src="AvatarFour"
+              @error="imgError()"
               alt=""
               :class="[light ? 'LittleAvatarLight' : 'LittleAvatarDark']"
             /> </a
@@ -203,6 +207,7 @@
           <a href="#">
             <img
               :src="AvatarFive"
+              @error="imgError()"
               alt=""
               :class="[light ? 'LittleAvatarLight' : 'LittleAvatarDark']"
             /> </a
@@ -326,14 +331,20 @@ export default {
       PersonThree: "",
       PersonFour: "",
       PersonFive: "",
-      AvatarOne: "",
-      AvatarTwo: "",
-      AvatarThree: "",
-      AvatarFour: "",
-      AvatarFive: "",
+      AvatarOne: "../pic/photo2.png",
+      AvatarTwo: "../pic/photo2.png",
+      AvatarThree: "../pic/photo2.png",
+      AvatarFour: "../pic/photo2.png",
+      AvatarFive: "../pic/photo2.png",
     };
   },
   methods: {
+    imgError() {
+      //console.log(item);
+      let img = event.srcElement;
+      img.src =require('@/pic/photo.png');
+      img.onerror = null; //防止闪图
+    },
     inputTag(key) {
       let cut = this.tag.split(";");
       let now = "";
@@ -515,6 +526,7 @@ export default {
         that.article3 = "/forum/" + response.data.rank_articles[2].article_id;
         console.log(that.article1);
         console.log("11");
+        console.log(response.data);
         that.PersonOne = response.data.rank_commits[0].NAME;
         that.PersonTwo = response.data.rank_commits[1].NAME;
         that.PersonThree = response.data.rank_commits[2].NAME;
@@ -526,11 +538,12 @@ export default {
         that.AvatarThree = response.data.rank_commits[2].AVATAR_URL;
         that.AvatarFour = response.data.rank_commits[3].AVATAR_URL;
         that.AvatarFive = response.data.rank_commits[4].AVATAR_URL;
-      },
+      }, //
       function (err) {
         console.log(err);
       }
     );
+    console.log(this.AvatarOne);
   },
   components: { headerhb },
 };
@@ -554,7 +567,7 @@ export default {
   top: 150px;
   width: 520px;
   border-radius: 10px;
-  background-color:  rgb(103, 222, 255,0.5) ;
+  background-color: rgb(103, 222, 255, 0.5);
   z-index: 2;
 }
 .EachTag {
@@ -564,7 +577,7 @@ export default {
   margin-right: 0.5vw;
   padding-left: 0.3vw;
   padding-right: 0.3vw;
-  font-family:  icomoon;
+  font-family: icomoon;
   color: #6a6e73;
   float: left;
 }

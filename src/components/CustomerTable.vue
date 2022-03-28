@@ -89,7 +89,8 @@
                               class="touxiang"
                               width="45vw"
                               height="45vh"
-                              :src="item.AVATAR_URL"
+                              :src= item.AVATAR_URL
+                              @error="tougraph()"
                               @click="hithead(item)"
                               style="cursor: pointer"
                             />
@@ -102,7 +103,7 @@
                               float
                               style="padding-left: 0"
                             >
-                              {{ item.NAME }}
+                              {{ item.LOGIN }}
                             </v-card-title>
                           </v-col>
                         </v-row>
@@ -385,6 +386,11 @@ export default {
     },
   },
   methods: {
+    tougraph() {
+      let img = event.srcElement;
+      img.src =require('@/pic/photo.png');
+      img.onerror=null;
+    },
     transform(key) {
       console.log(key);
       if (key == "FOLLOWERS_COUNT") return "Fans";
@@ -421,7 +427,7 @@ export default {
   //   }
   created() {
     this.items = user.getters.getUser(user.state()).user.search;
-    //console.log(this.items);
+    console.log("用户们有以下：" + this.items);
   },
   components: { headhb },
 };
@@ -460,7 +466,7 @@ To siri:
   /* margin-top: calc(50%-45vw);
   align-self: center; */
 }
-.tablefirst{
+.tablefirst {
   margin-top: 4.5vw;
 }
 .warp {

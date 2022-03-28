@@ -506,17 +506,19 @@ export default {
 .mblog {
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   padding-top: 4vh;
-  padding-left: 3vw;
-  padding-right: 3vw;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  padding-bottom: 2vh;
 }
 /*md文档所在的卡片 */
 .Mcard {
   margin-top: 2vh;
   margin-bottom: 0vh;
-  margin-left: 1vw;
-  margin-right: 1vw;
+  margin-left: 6vw;
+  margin-right: 6vw;
   padding-left: 3vw;
   padding-right: 3vw;
+  padding-bottom: 2vh;
   min-height: 40vh;
   background-color: rgba(254, 248, 239, 0.81);
 }
@@ -534,9 +536,9 @@ export default {
 .commentadd {
   background-color: rgba(254, 248, 239, 0.81);
   margin-bottom: 2vh;
-  margin-left: 4vw;
-  margin-right: 4vw;
-  margin-top: 2vh;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  /* margin-top: 2vh; */
   padding-top: 2vh;
   padding-bottom: 2vh;
   padding-left: 3vw;
