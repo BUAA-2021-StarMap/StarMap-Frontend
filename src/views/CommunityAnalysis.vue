@@ -33,12 +33,12 @@
       <div
         style="width: 180vh; height: 80vh"
         id="chartCommit"
-        v-if="lineChart"
+        v-show="lineChart"
       ></div>
       <div
         style="width: 180vh; height: 80vh"
         id="chartWH"
-        v-if="PieChart"
+        v-show="PieChart"
       ></div>
     </div>
   </el-container>
@@ -47,7 +47,7 @@
 import headernav from "@/components/HeadVue.vue";
 import "echarts/lib/component/grid";
 //import "../style/macarons.js";
-import themeAnalyse from '@/style/themeAnalysis'
+import themeAnalyse from "@/style/themeAnalysis";
 
 export default {
   name: "DataView",
@@ -56,14 +56,31 @@ export default {
     return {
       a: [],
       b: [],
+      commit_create_time: [],
+      commit_create_count: [],
+
+      issue_create_time: [],
+      issue_create_count: [],
+
+      pull_create_time: [],
+      pull_create_count: [],
+
+      commit_list: [],
+      issue_list: [],
+      pull_list: [],
+
+      mcommit_list: [],
+      missue_list: [],
+      mpull_list: [],
+
       PieChart: 0,
       lineChart: 1,
       kind: "commit",
     };
   },
-
+  created() {},
   mounted() {
-    this.getDataCommit();
+    this.getStart();
   },
 
   methods: {
@@ -72,7 +89,7 @@ export default {
         case "a":
           this.lineChart = 1;
           this.PieChart = 0;
-          this.this.kind = "commit";
+          this.kind = "commit";
           this.getDataCommit();
           break;
         case "b":
@@ -125,197 +142,162 @@ export default {
           break;
       }
     },
-    getDataCommit() {
+    getStart() {
       console.log("getData");
       var that = this;
       this.$axios.get("/community/element_time/").then(
         function (response) {
-          console.log(response);
-          that.a = response.data.commit_create_time;
-          that.b = response.data.commit_create_count;
-          console.log("a: " + that.a);
-          console.log("b: " + that.b);
+          that.commit_create_time = response.data.commit_create_time;
+          that.commit_create_count = response.data.commit_create_count;
+
+          console.log("created_axios_a: " + that.commit_create_time);
+
+          that.issue_create_time = response.data.issue_create_time;
+          that.issue_create_count = response.data.issue_create_count;
+
+          that.pull_create_time = response.data.pull_create_time;
+          that.pull_create_count = response.data.pull_create_count;
+
+          that.a = that.commit_create_time;
+          that.b = that.commit_create_count;
           that.initchart2();
+
           console.log("created finish");
         },
         function (err) {
           console.log(err);
         }
       );
-    },
-    getDataIssue() {
-      console.log("getDataIssue");
-      var that = this;
-      this.$axios.get("/community/element_time/").then(
-        function (response) {
-          console.log(response);
-          that.a = response.data.issue_create_time;
-          that.b = response.data.issue_create_count;
-          console.log("a: " + that.a);
-          console.log("b: " + that.b);
-          that.initchart1();
-          console.log("created finish");
-        },
-        function (err) {
-          console.log(err);
-        }
-      );
-    },
-    getDataPull() {
-      console.log("getDataIssue");
-      var that = this;
-      this.$axios.get("/community/element_time/").then(
-        function (response) {
-          console.log(response);
-          that.a = response.data.pull_create_time;
-          that.b = response.data.pull_create_count;
-          console.log("a: " + that.a);
-          console.log("b: " + that.b);
-          that.initchart1();
-          console.log("created finish");
-        },
-        function (err) {
-          console.log(err);
-        }
-      );
-    },
-    getDataCommitWH() {
+
+      console.log("created_a: " + this.commit_create_time);
       console.log("getDataCWH");
-      var that = this;
       this.$axios.get("/community/repo_count/").then(
         function (response) {
-          let i = 0,
-            pie = [];
-          console.log(response);
-          that.a = response.data.commit_list;
-          for (; i < that.a.length; i++) {
-            pie[i] = {
-              value: that.a[i][1],
-              name: that.a[i][0],
-            };
-          }
-          console.log(pie);
-          that.initchartCircleWH(pie);
+          that.commit_list = response.data.commit_list;
+          that.issue_list = response.data.issue_list;
+          that.pull_list = response.data.pull_list;
         },
         function (err) {
           console.log(err);
         }
       );
+
+      console.log("getData");
+      this.$axios.get("/community/member_count/").then(
+        function (response) {
+          that.mcommit_list = response.data.commit_list;
+          that.missue_list = response.data.issue_list;
+          that.mpull_list = response.data.pull_list;
+        },
+        function (err) {
+          console.log(err);
+        }
+      );
+    },
+    getDataCommit() {
+      this.a = this.commit_create_time;
+      this.b = this.commit_create_count;
+      this.initchart2();
+      console.log("created finish");
+    },
+    getDataIssue() {
+      this.a = this.issue_create_time;
+      this.b = this.issue_create_count;
+      this.initchart1();
+    },
+    getDataPull() {
+      this.a = this.pull_create_time;
+      this.b = this.pull_create_count;
+      this.initchart1();
+    },
+    getDataCommitWH() {
+      let pie = [],
+        i = 0;
+      var that = this;
+      that.a = that.commit_list;
+      for (; i < that.a.length; i++) {
+        pie[i] = {
+          value: that.a[i][1],
+          name: that.a[i][0],
+        };
+      }
+      console.log(pie);
+      that.initchartCircleWH(pie);
     },
     getDataIssueWH() {
       console.log("getData");
       var that = this;
-      this.$axios.get("/community/repo_count/").then(
-        function (response) {
-          let i = 0,
-            pie = [];
-          console.log(response);
-          that.a = response.data.issue_list;
-          for (; i < that.a.length; i++) {
-            pie[i] = {
-              value: that.a[i][1],
-              name: that.a[i][0],
-            };
-          }
-          console.log(pie);
-          that.initchartCircleWH(pie);
-        },
-        function (err) {
-          console.log(err);
-        }
-      );
+      let i = 0,
+        pie = [];
+      that.a = that.issue_list;
+      for (; i < that.a.length; i++) {
+        pie[i] = {
+          value: that.a[i][1],
+          name: that.a[i][0],
+        };
+      }
+      console.log(pie);
+      that.initchartCircleWH(pie);
     },
     getDataPullWH() {
       console.log("getData");
       var that = this;
-      this.$axios.get("/community/repo_count/").then(
-        function (response) {
-          let i = 0,
-            pie = [];
-          console.log(response);
-          that.a = response.data.pull_list;
-          for (; i < that.a.length; i++) {
-            pie[i] = {
-              value: that.a[i][1],
-              name: that.a[i][0],
-            };
-          }
-          console.log(pie);
-          that.initchartCircleWH(pie);
-        },
-        function (err) {
-          console.log(err);
-        }
-      );
+      let i = 0,
+        pie = [];
+      that.a = that.pull_list;
+      for (; i < that.a.length; i++) {
+        pie[i] = {
+          value: that.a[i][1],
+          name: that.a[i][0],
+        };
+      }
+      console.log(pie);
+      that.initchartCircleWH(pie);
     },
     getDataCommitP() {
       console.log("getData");
       var that = this;
-      this.$axios.get("/community/member_count/").then(
-        function (response) {
-          let i = 0,
-            pie = [];
-          console.log(response);
-          that.a = response.data.commit_list;
-          for (; i < that.a.length; i++) {
-            pie[i] = {
-              value: that.a[i][1],
-              name: that.a[i][0],
-            };
-          }
-          console.log(pie);
-          that.initchartCircleWH(pie);
-        },
-        function (err) {
-          console.log(err);
-        }
-      );
+      let i = 0,
+        pie = [];
+      that.a = that.mcommit_list;
+      for (; i < that.a.length; i++) {
+        pie[i] = {
+          value: that.a[i][1],
+          name: that.a[i][0],
+        };
+      }
+      console.log(pie);
+      that.initchartCircleWH(pie);
     },
     getDataIssueP() {
       console.log("getData");
       var that = this;
-      this.$axios.get("/community/member_count/").then(
-        function (response) {
-          let i = 0,
-            pie = [];
-          console.log(response);
-          that.a = response.data.issue_list;
-          for (; i < that.a.length; i++) {
-            pie[i] = {
-              value: that.a[i][1],
-              name: that.a[i][0],
-            };
-          }
-          console.log(pie);
-          that.initchartCircleWH(pie);
-        },
-        function (err) {
-          console.log(err);
-        }
-      );
+      let i = 0,
+        pie = [];
+      that.a = that.missue_list;
+      for (; i < that.a.length; i++) {
+        pie[i] = {
+          value: that.a[i][1],
+          name: that.a[i][0],
+        };
+      }
+      console.log(pie);
+      that.initchartCircleWH(pie);
     },
     getDataPullP() {
       console.log("getData");
       var that = this;
-      this.$axios.get("/community/member_count/").then(
-        function (response) {
-          let i = 0,
-            pie = [];
-          console.log(response);
-          that.a = response.data.pull_list;
-          for (; i < that.a.length; i++) {
-            pie[i] = {
-              value: that.a[i][1],
-              name: that.a[i][0],
-            };
-          }
-          console.log(pie);
-          that.initchartCircleWH(pie);
-        },
-        function (err) {
-          console.log(err);
-        }
-      );
+      let i = 0,
+        pie = [];
+      that.a = that.mpull_list;
+      for (; i < that.a.length; i++) {
+        pie[i] = {
+          value: that.a[i][1],
+          name: that.a[i][0],
+        };
+      }
+      console.log(pie);
+      that.initchartCircleWH(pie);
     },
     initchart1() {
       this.$echarts.registerTheme("macarons", themeAnalyse);
@@ -367,6 +349,7 @@ export default {
       });
     },
     initchart2() {
+      console.log(this.a);
       this.$echarts.registerTheme("macarons", themeAnalyse);
       console.log("initchart");
       let mychart = this.$echarts.init(
@@ -416,6 +399,7 @@ export default {
           },
         ],
       });
+      console.log("完事");
     },
     initchartCircleWH(c) {
       console.log(c);
