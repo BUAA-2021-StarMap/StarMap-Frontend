@@ -32,6 +32,7 @@
         v-if="dark"
       />
     </div>
+    -->
     <div>
       <img
         src="../pic/star/StarBackgroundBlue3.png"
@@ -40,7 +41,7 @@
         v-if="light"
       />
     </div>
-    <!-- 搜索框部分 -->
+    搜索框部分
     <header class="SearchInput">
       <img
         src="../pic/logo_dark.png"
@@ -93,7 +94,7 @@
           </v-chip>
         </div>
       </v-expand-transition>
-      <!-- <div class="outline tag"></div> -->
+      <div class="outline tag"></div>
       <el-row>
         <el-button
           class="icomoon outline transition searchDark"
@@ -277,6 +278,47 @@
             >社区分析</a
           >
         </p>
+        <p class="ForumText ForumOne">
+          <span
+            class="icomoon transition"
+            :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
+            >commit</span
+          ><br />
+          <a
+            :href="article1"
+            :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
+            class="CA"
+            >{{ Commit }}</a
+          >
+        </p>
+
+        <p class="ForumText ForumTwo">
+          <span
+            class="icomoon transition"
+            :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
+            >issue</span
+          ><br />
+          <a
+            :href="article2"
+            :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
+            class="CA"
+            >{{ Issue }}</a
+          >
+        </p>
+
+        <p class="ForumText ForumThree">
+          <span
+            class="icomoon transition"
+            :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
+            >pull</span
+          ><br />
+          <a
+            :href="article3"
+            :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
+            class="CA"
+            >{{ Pull }}</a
+          >
+        </p>
       </el-main>
     </el-container>
   </div>
@@ -331,6 +373,9 @@ export default {
       AvatarThree: "",
       AvatarFour: "",
       AvatarFive: "",
+      Commit: "",
+      Issue: "",
+      Pull: "",
     };
   },
   methods: {
@@ -522,6 +567,9 @@ export default {
         that.AvatarThree = response.data.rank_commits[2].AVATAR_URL;
         that.AvatarFour = response.data.rank_commits[3].AVATAR_URL;
         that.AvatarFive = response.data.rank_commits[4].AVATAR_URL;
+        that.Commit = response.data.commit_nums.commit_nums;
+        that.Issue = response.data.issue_nums.issue_nums;
+        that.Pull = response.data.pullRequests_nums.pullRequests_nums;
       },
       function (err) {
         console.log(err);
@@ -654,7 +702,7 @@ export default {
 .searchLight {
   position: absolute;
   left: calc(50% + 28.3vh);
-  top: 15vh;
+  top: 9.7vh;
   width: 5.8vh;
   height: 5.4vh;
   background-color: #5fc7e4;
@@ -667,7 +715,7 @@ export default {
 .searchDark {
   position: absolute;
   left: calc(50% + 28.3vh);
-  top: 15vh;
+  top: 9.7vh;
   width: 5.8vh;
   height: 5.4vh;
   background-color: #ebba1c;
@@ -684,7 +732,7 @@ export default {
   height: 20vh;
   width: 140vh;
   /* border: 1px solid #cabd06; */
-  background: linear-gradient(to right, rgb(219, 207, 101), rgb(239, 243, 194));
+  background: linear-gradient(to right, rgb(235, 220, 92), rgb(239, 243, 194));
   opacity: 0.7;
   border-radius: 10px;
   /* box-shadow: 2px 2px 50px 2px rgb(228, 228, 228); */
@@ -699,7 +747,7 @@ export default {
   width: 140vh;
   /* border: 1px solid #57a6b9; */
   border-radius: 5px;
-  background: linear-gradient(to right, rgb(84, 176, 204), rgb(179, 226, 235));
+  background: linear-gradient(to right, rgb(88, 187, 218), rgb(179, 226, 235));
   opacity: 0.7;
   color: #fff5f9;
   border-radius: 10px;
@@ -897,5 +945,10 @@ body {
 
 .clearfix {
   *zoom: 1;
+}
+
+.CA {
+  text-align: center;
+  font-size: 24px;
 }
 </style>
