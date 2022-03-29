@@ -29,7 +29,8 @@
 <script>
 import headernav from "@/components/HeadVue.vue";
 import "echarts/lib/component/grid";
-import "../style/macarons.js";
+//import "../style/macarons.js";
+import themeAnalyse from '@/style/themeAnalysis'
 
 export default {
   name: "DataView",
@@ -118,7 +119,7 @@ export default {
       );
     },
     initchart1() {
-      //   this.$echarts.registerTheme("macarons", JSON.parse(themeJSON));
+      this.$echarts.registerTheme("macarons", themeAnalyse);
       console.log("initchart");
       let mychart = this.$echarts.init(
         document.getElementById("chartCommit"),
@@ -167,7 +168,7 @@ export default {
       });
     },
     initchart2() {
-      //   this.$echarts.registerTheme("macarons", JSON.parse(themeJSON));
+      this.$echarts.registerTheme("macarons", themeAnalyse);
       console.log("initchart");
       let mychart = this.$echarts.init(
         document.getElementById("chartCommit"),

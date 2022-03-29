@@ -38,8 +38,10 @@
         >
       </div>
     </div>
-     <div id="cert" style="margin-top:7vh; bottom: 0; color: grey; font-size: 10px;">
-      互联网ICP备案：京ICP备2022007189号
+     <div id="cert" >
+      <a id="cert_text" href="https://beian.miit.gov.cn/">
+        互联网ICP备案：京ICP备2022007189号
+      </a>
     </div>
     <router-view></router-view>
   </div>
@@ -121,6 +123,16 @@ export default {
 </script>
 
 <style scoped>
+#cert{
+  position: absolute;
+  bottom: 50px;
+  left:655px;
+  font-size: 10px;
+}
+#cert_text{
+  text-decoration: none;
+  color: grey;
+}
 .logintitle {
   font-size: 29px;
   font-family: "FZShuTi";
@@ -131,6 +143,7 @@ export default {
 
 .register {
   color: black;
+   
 }
 
 .register:hover {

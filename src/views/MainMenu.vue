@@ -58,7 +58,7 @@
         placeholder="请输入问题"
         v-model="message"
         clearable
-        v-if="dark"
+        v-if="light"
         class="outline transition inputLight"
       >
       </el-input>
@@ -68,7 +68,7 @@
           class="outline transition inputDark"
           placeholder="请输入tag"
           v-model="tag"
-          v-if="light"
+          v-if="dark"
         ></el-input>
         <button
           @click="ShowTag"
@@ -78,7 +78,7 @@
           
         </button>
       </v-card-actions>
-      <v-expand-transition>
+      <v-expand-transition >
         <div class="expand_for_tags" v-show="tagsshow">
           <v-chip
             class="EachTag"
@@ -96,16 +96,16 @@
       <!-- <div class="outline tag"></div> -->
       <el-row>
         <el-button
-          class="icomoon outline transition searchDark"
+          class="icomoon outline transition searchLight"
           @click="SendMessage"
-          v-if="dark"
+          v-if="light"
           icon="el-icon-search"
           circle
         ></el-button>
         <el-button
-          class="icomoon outline transition searchLight"
+          class="icomoon outline transition searchDark"
           @click="SendTag"
-          v-if="light"
+          v-if="dark"
           icon="el-icon-search"
           circle
         ></el-button>
@@ -276,7 +276,7 @@
       <el-main class="community" :class="[light ? 'blockLight' : 'blockDark']">
         <p class="BlockTitle">
           <a
-            href="#"
+            href="/data"
             :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
             class="transition"
             >社区分析</a
@@ -722,16 +722,19 @@ export default {
 }
 
 .leaderboard {
+  overflow: hidden;
   top: 28vh;
 }
 
 .forum {
   top: 50vh;
   z-index: 0;
+  overflow: hidden;
 }
 
 .community {
   top: 72vh;
+  overflow: hidden;
 }
 
 .BlockTitle {
@@ -742,11 +745,14 @@ export default {
   font-weight: bolder;
   font-size: 27px;
   color: black;
+  overflow: hidden;
 }
 .BlockTitle:hover {
   cursor: pointer;
   transform: scale(1.1);
   transition: 0.6s;
+  
+  overflow: hidden;
 }
 
 .ForumText {
