@@ -202,7 +202,7 @@ export default {
 }
 .m-container .subheadbt {
   font-size: 20px;
-  background: linear-gradient(to left, rgb(110, 192, 230), rgb(179, 226, 235));
+  background: linear-gradient(to left, rgb(123, 203, 240), rgb(179, 226, 235));
   color: white;
   margin-left: 3vw;
   margin-right: 3vw;

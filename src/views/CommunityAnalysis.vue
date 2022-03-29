@@ -12,6 +12,12 @@
         <el-dropdown-item command="a">commit</el-dropdown-item>
         <el-dropdown-item command="b">issue</el-dropdown-item>
         <el-dropdown-item command="c">pull</el-dropdown-item>
+        <el-dropdown-item command="d">commit</el-dropdown-item>
+        <el-dropdown-item command="e">issue</el-dropdown-item>
+        <el-dropdown-item command="f">pull</el-dropdown-item>
+        <el-dropdown-item command="h">commit</el-dropdown-item>
+        <el-dropdown-item command="i">issue</el-dropdown-item>
+        <el-dropdown-item command="j">pull</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
     <div
