@@ -38,6 +38,9 @@
         >
       </div>
     </div>
+     <div id="cert" style="margin-top:7vh; bottom: 0; color: grey; font-size: 10px;">
+      互联网ICP备案：京ICP备2022007189号
+    </div>
     <router-view></router-view>
   </div>
 </template>

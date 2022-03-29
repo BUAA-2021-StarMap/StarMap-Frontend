@@ -416,6 +416,7 @@ export default {
       let uid = user.getters.getUser(user.state()).user.uid;
       let uname = user.getters.getUser(user.state()).user.username;
       console.log(uid);
+      console.log("发送的内容为："+that.message);
       //let tags = that.message.split(" ");
       this.$axios
         .post("/index/", {
@@ -424,6 +425,7 @@ export default {
         })
         .then((res) => {
           console.log(res);
+          console.log("第一类搜索返回的人员有:"+res.data.allMemberList);
           that.$store.dispatch("saveUserInfo", {
             user: {
               uid: uid,
@@ -436,22 +438,6 @@ export default {
         .catch((err) => {
           console.log(err);
         });
-      // this.$axios
-      //   .post("http://101.42.224.73:8000/index", { message: that.message }) //网页不知道 要传递参数叫什么不知道
-      //   .then(
-      //     function (res) {
-      //       console.log(res);
-      //       this.$store.dispatch('saveUserInfo', {
-      //         user: {
-      //           'uid': uid,
-      //           'search': res.data,
-      //         }
-      //       });
-      //     },
-      //     function (err) {
-      //       console.log(err);
-      //     }
-      //   );
     },
     SendTag: function () {
       var that = this;
