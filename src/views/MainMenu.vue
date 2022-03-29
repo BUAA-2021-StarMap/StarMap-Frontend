@@ -74,7 +74,7 @@
         <button
           @click="ShowTag"
           class="outline icomoon TagButton transition"
-          v-if="dark"
+          v-if="light"
         >
           
         </button>
@@ -277,7 +277,7 @@
       <el-main class="community" :class="[light ? 'blockLight' : 'blockDark']">
         <p class="BlockTitle">
           <a
-            href="/data"
+            :href="CommunityAnalysis"
             :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
             class="transition"
             >社区分析</a
@@ -290,7 +290,7 @@
             >commit</span
           ><br />
           <a
-            :href="article1"
+            :href="CommunityAnalysis"
             :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
             class="CA"
             >{{ Commit }}</a
@@ -304,7 +304,7 @@
             >issue</span
           ><br />
           <a
-            :href="article2"
+            :href="CommunityAnalysis"
             :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
             class="CA"
             >{{ Issue }}</a
@@ -318,7 +318,7 @@
             >pull</span
           ><br />
           <a
-            :href="article3"
+            :href="CommunityAnalysis"
             :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
             class="CA"
             >{{ Pull }}</a
@@ -368,6 +368,7 @@ export default {
       article1: "",
       article2: "",
       article3: "",
+      CommunityAnalysis: "/data",
       PersonOne: "",
       PersonTwo: "",
       PersonThree: "",
