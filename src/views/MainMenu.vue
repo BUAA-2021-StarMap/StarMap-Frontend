@@ -272,7 +272,7 @@
       <el-main class="community" :class="[light ? 'blockLight' : 'blockDark']">
         <p class="BlockTitle">
           <a
-            href="CommunityAnalysis"
+            :href="CommunityAnalysis"
             :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
             class="transition"
             >社区分析</a

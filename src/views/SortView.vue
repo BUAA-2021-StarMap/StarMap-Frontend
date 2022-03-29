@@ -338,8 +338,6 @@ export default {
   background-color: transparent;
   height: 400px;
   z-index: -1;
-  filter: brightness(90%);
-  filter: contrast(90%);
 }
 .StarBackground2 {
   position: absolute;
@@ -348,8 +346,6 @@ export default {
   background-color: transparent;
   height: 400px;
   z-index: -1;
-  filter: brightness(90%);
-  filter: contrast(90%);
 }
 .StarBackground3 {
   opacity: 0.8;
@@ -358,8 +354,6 @@ export default {
   top: -70px;
   width: 1460px;
   z-index: -1;
-  filter: brightness(90%);
-  filter: contrast(90%);
 }
 
 /* 让一个元素在父元素中居中 */
