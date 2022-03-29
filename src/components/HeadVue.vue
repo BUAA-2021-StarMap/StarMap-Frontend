@@ -139,7 +139,7 @@ export default {
   color: black;
 }
 .LittleBoxLight:hover {
-  color: #67deff;
+  color: #30c0e7;
 }
 
 .transition {

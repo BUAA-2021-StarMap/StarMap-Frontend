@@ -49,7 +49,11 @@
     <div class="maplow">
       <!-- 帖子的具体内容 -->
       <div class="mblog">
-        <h2 class="mdtitle" v-html="article.title" style="color: #31d3fe"></h2>
+        <h2
+          class="mdtitle"
+          v-html="article.title"
+          style="color: rgb(113, 169, 201)"
+        ></h2>
         <v-row>
           <v-spacer />
 
@@ -478,22 +482,22 @@ export default {
 }
 /*弹窗回复按钮 */
 .res-sub-btn {
-  background-color: #67deff;
+  background-color: rgb(113, 169, 201);
 }
 /*确定删除？字样 */
 .alerttitle {
   margin-bottom: 5vh;
 }
 .confirm {
-  background-color: #67deff;
+  background-color: rgb(113, 169, 201);
 }
 .goback {
-  background-color: #67deff;
+  background-color: rgb(113, 169, 201);
 }
 .article-delete-btn {
   margin-right: 0vw;
   border: unset;
-  color: #67deff;
+  color: rgb(113, 169, 201);
 }
 .maplow {
   z-index: 1;
@@ -521,7 +525,7 @@ export default {
   background-color: rgba(254, 248, 239, 0.81);
 }
 .mdtitle {
-  color: #67deff;
+  color: #38a7d3;
   font-family: STXinwei;
   font-size: xx-large;
 }
@@ -551,7 +555,7 @@ export default {
   text-align: right;
 }
 .reply-btn {
-  background-color: #67deff;
+  background-color: rgb(113, 169, 201);
   color: white;
 }
 /*评论们 */
@@ -573,7 +577,7 @@ export default {
 /*名字 */
 .TLrow1 {
   height: 6vh;
-  color: #67deff;
+  color: rgb(113, 169, 201);
   font-size: x-large;
   font-weight: bold;
   font-style: italic;
@@ -592,7 +596,7 @@ export default {
 }
 /*滚动条 */
 .res-btn {
-  color: #67deff;
+  color: rgb(113, 169, 201);
   border: none;
   background-color: unset;
 }
