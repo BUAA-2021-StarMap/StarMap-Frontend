@@ -4,7 +4,11 @@
     <v-row>
       <v-col class="fpic">
         <v-card class="pic_card">
-          <div class="pic" id="fone" style="width: 70vw; height: 50vh ; align: center" ></div>
+          <div
+            class="pic"
+            id="fone"
+            style="width: 70vw; height: 50vh; align: center"
+          ></div>
         </v-card>
       </v-col>
     </v-row>
@@ -19,7 +23,7 @@
   </div>
 </template>
 <script>
-import user from '@/store/user'
+import user from "@/store/user";
 import themeone from "../style/theme";
 export default {
   name: "CustomerCharts",
@@ -321,9 +325,9 @@ export default {
     this.initcharts();
     console.log("entermounted");
   },
-  created(){
-    this.items= user.getters.getUser(user.state()).user.search;
-  }
+  created() {
+    this.items = user.getters.getUser(user.state()).user.search;
+  },
 };
 </script>
 <style scoped>
@@ -340,7 +344,7 @@ export default {
   padding-top: 2vh;
   padding-bottom: 2vh;
 }
-.pic{
+.pic {
   align-content: center;
 }
 .ffan {

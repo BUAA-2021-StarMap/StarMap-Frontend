@@ -349,6 +349,8 @@ export default {
   background-color: transparent;
   height: 400px;
   z-index: -1;
+  filter: brightness(90%);
+  filter: contrast(90%);
 }
 .StarBackground2 {
   position: absolute;
@@ -357,6 +359,8 @@ export default {
   background-color: transparent;
   height: 400px;
   z-index: -1;
+  filter: brightness(90%);
+  filter: contrast(90%);
 }
 .StarBackground3 {
   opacity: 0.8;
@@ -365,6 +369,8 @@ export default {
   top: -70px;
   width: 1460px;
   z-index: -1;
+  filter: brightness(90%);
+  filter: contrast(90%);
 }
 
 /* 让一个元素在父元素中居中 */
@@ -466,7 +472,7 @@ export default {
   height: 100%;
   /* background: linear-gradient(#dE685E, #EE786E); */
   /* background: linear-gradient(rgb(245, 186, 186), rgb(255, 216, 216)); */
-  background: linear-gradient(rgb(194, 253, 255), rgb(216, 249, 255));
+  background: linear-gradient(rgb(108, 196, 199), rgb(166, 213, 221));
   /* background: linear-gradient(rgb(255, 216, 216), rgb(255, 216, 216)); */
   /* 这里是弹出后收回的过渡 */
   transition: width 0.4s;
@@ -508,7 +514,7 @@ export default {
 .box-card .additional .user-card .level,
 .box-card .additional .user-card .points {
   top: 15%;
-  color: rgb(255, 252, 228);
+  color: white;
   text-transform: uppercase;
   font-size: 0.75em;
   font-weight: bold;
@@ -532,13 +538,13 @@ export default {
   height: 100%;
 }
 .box-card .additional .more-info h1 {
-  color: rgb(223, 213, 126);
+  color: white;
   margin-bottom: 5px;
 }
 
 .box-card .additional .coords {
   margin: 0 1rem;
-  color: rgb(223, 213, 126);
+  color: white;
   /* font-size: 1rem; */
   font-size: 2.2vh;
 }
@@ -556,7 +562,7 @@ export default {
   left: 1rem;
   right: 1rem;
   top: auto;
-  color: rgb(223, 213, 126);
+  color: white;
 }
 
 .box-card .additional .stats > div {

@@ -4,32 +4,32 @@
       src="../pic/star/StarBackground1.png"
       alt=""
       class="StarBackground1"
-      v-if="light"
+      v-if="dark"
     />
     <img
       src="../pic/star/StarBackgroundBlue1.png"
       alt=""
       class="StarBackground1"
-      v-if="dark"
+      v-if="light"
     />
     <img
       src="../pic/star/StarBackground2.png"
       alt=""
       class="StarBackground2"
-      v-if="light"
+      v-if="dark"
     />
     <img
       src="../pic/star/StarBackgroundBlue2.png"
       alt=""
       class="StarBackground2"
-      v-if="dark"
+      v-if="light"
     />
     <div>
       <img
         src="../pic/star/StarBackground3.png"
         alt=""
         class="StarBackground3"
-        v-if="light"
+        v-if="dark"
       />
     </div>
     <div>
@@ -37,7 +37,7 @@
         src="../pic/star/StarBackgroundBlue3.png"
         alt=""
         class="StarBackground3"
-        v-if="dark"
+        v-if="light"
       />
     </div>
     <!-- 搜索框部分 -->
@@ -45,20 +45,20 @@
       <img
         src="../pic/logo_dark.png"
         @click="changeDark"
-        v-if="dark"
+        v-if="light"
         class="change outline"
       />
       <img
         src="../pic/logoYellow.png"
         @click="changeLight"
-        v-if="light"
+        v-if="dark"
         class="change outline"
       />
       <el-input
         placeholder="请输入问题"
         v-model="message"
         clearable
-        v-if="light"
+        v-if="dark"
         class="outline transition inputLight"
       >
       </el-input>
@@ -68,7 +68,7 @@
           class="outline transition inputDark"
           placeholder="请输入tag"
           v-model="tag"
-          v-if="dark"
+          v-if="light"
         ></el-input>
         <button
           @click="ShowTag"
@@ -98,14 +98,14 @@
         <el-button
           class="icomoon outline transition searchDark"
           @click="SendMessage"
-          v-if="light"
+          v-if="dark"
           icon="el-icon-search"
           circle
         ></el-button>
         <el-button
           class="icomoon outline transition searchLight"
           @click="SendTag"
-          v-if="dark"
+          v-if="light"
           icon="el-icon-search"
           circle
         ></el-button>
@@ -584,108 +584,85 @@ export default {
 5.小按钮颜色 over
 6.三个板块内部颜色
 改logo logo要重画 */
-#lightTheme {
-  background-color: #fafafa;
-}
 
-#darkTheme {
+.bg {
   background-color: #010409;
 }
 
 .StarBackground1 {
   position: absolute;
-  top: 320px;
-  left: 260px;
+  top: 40vh;
+  left: 37vh;
   background-color: transparent;
-  height: 400px;
+  height: 60vh;
 }
 .StarBackground2 {
   position: absolute;
-  top: 70px;
-  left: 950px;
+  top: 10vh;
+  left: 120vh;
   background-color: transparent;
-  height: 400px;
+  height: 60vh;
 }
 .StarBackground3 {
   opacity: 0.8;
   position: absolute;
-  left: 70px;
-  top: -70px;
-  width: 1460px;
+  left: 8vh;
+  top: -8vh;
+  width: 95%;
 }
 
 .change {
   position: absolute;
-  left: calc(50% - 325px);
-  top: 112px;
-  width: 70px;
-  height: 37px;
+  left: calc(50% - 42vh);
+  top: 15vh;
+  width: 9vh;
+  height: 5vh;
   font-size: 20px;
   border: none;
   background-color: transparent;
   cursor: pointer;
+  filter: brightness(90%);
+  filter: contrast(90%);
 }
 
 .logo {
   background-color: transparent;
   width: auto;
-  height: 37px;
+  height: 10vh;
 }
 
-.SearchInput >>> .inputLight {
+.inputLight {
   position: absolute;
-  left: calc(50% - 263px);
-  top: 112px;
-  width: 475px;
-  height: 47px;
-  /* background-color: #fbfbfb;
-  font-size: 15px;
-  border: 1px solid rgb(197, 197, 197);
-  text-indent: 1em;
-  box-shadow: 2px 2px 50px 2px rgb(228, 228, 228); */
-}
-.SearchInput >>> .inputLight:focus,
-.SearchInput >>> .inputLight:active {
-  border-color: #f7bf07;
+  left: calc(50% - 35vh);
+  top: 15vh;
+  width: 63vh;
+  height: 10vh;
 }
 .inputDark {
   position: absolute;
-  left: calc(50% - 263px);
-  top: 112px;
-  width: 475px;
-  height: 47px;
-  /* background-color: #292c30;
-  font-size: 15px;
-  border: 1px solid #7a828e;
-  border-radius: 5px 0 0 5px;
-  text-indent: 1em;
-  color: #c2c2c3;
-  box-shadow: 2px 2px 50px 2px rgb(32, 32, 32); */
+  left: calc(50% - 35vh);
+  top: 15vh;
+  width: 63vh;
+  height: 10vh;
 }
-/* .inputDark:hover,
-.inputDark:focus {
-  background-color: #272b33;
-  border: 1px solid #f7bf07;
-  color: #f0f3f6;
-} */
 
 .TagButton {
   position: absolute;
-  left: calc(50% + 186px);
-  top: 119px;
+  left: calc(50% + 25vh);
+  top: 16vh;
   font-size: 23px;
-  color: #67deff;
+  color: #5fc7e4;
   border: none;
   background-color: transparent;
 }
 
 .searchLight {
   position: absolute;
-  left: calc(50% + 214px);
-  top: 111px;
-  width: 44px;
-  height: 41px;
-  background-color: #67deff;
+  left: calc(50% + 28.3vh);
+  top: 15vh;
+  width: 5.8vh;
+  height: 5.4vh;
+  background-color: #5fc7e4;
   color: white;
   font-size: 15px;
   border: none;
@@ -694,11 +671,11 @@ export default {
 }
 .searchDark {
   position: absolute;
-  left: calc(50% + 214px);
-  top: 111px;
-  width: 44px;
-  height: 41px;
-  background-color: #f7bf07;
+  left: calc(50% + 28.3vh);
+  top: 15vh;
+  width: 5.8vh;
+  height: 5.4vh;
+  background-color: #ebba1c;
   color: white;
   font-size: 15px;
   border: none;
@@ -708,82 +685,91 @@ export default {
 
 .blockLight {
   position: absolute;
-  left: calc(50% - 520px);
-  height: 130px;
-  width: 1040px;
-  border: 1px solid #f7e709;
-  background-color: rgba(254, 248, 239, 0.81);
-  opacity: 0.8;
+  left: calc(50% - 70vh);
+  height: 20vh;
+  width: 140vh;
+  /* border: 1px solid #cabd06; */
+  background: linear-gradient(to right, rgb(219, 207, 101), rgb(239, 243, 194));
+  opacity: 0.7;
   border-radius: 10px;
   /* box-shadow: 2px 2px 50px 2px rgb(228, 228, 228); */
 }
 .blockLight:hover {
-  color: #67deff;
+  color: #6ab0c4;
 }
 .blockDark {
   position: absolute;
-  left: calc(50% - 520px);
-  height: 130px;
-  width: 1040px;
-  border: 1px solid #61ddfc;
+  left: calc(50% - 70vh);
+  height: 20vh;
+  width: 140vh;
+  /* border: 1px solid #57a6b9; */
   border-radius: 5px;
-  background-color: rgba(239, 251, 254, 0.81);
-  opacity: 0.8;
+  background: linear-gradient(to right, rgb(84, 176, 204), rgb(179, 226, 235));
+  opacity: 0.7;
   color: #fff5f9;
+  border-radius: 10px;
   /* box-shadow: 2px 2px 50px 2px rgb(32, 32, 32); */
 }
 .blockDark:hover {
-  color: #f7bf07;
+  color: #e4bc39;
 }
 
 .blockLinkLight:hover {
-  color: #67deff;
+  color: #6ab0c4;
 }
 .blockLinkDark:hover {
-  color: #f7bf07;
+  color: #9c7800;
 }
 
 .leaderboard {
-  top: 210px;
+  top: 28vh;
 }
 
 .forum {
-  top: 380px;
+  top: 50vh;
   z-index: 0;
+}
+
+.community {
+  top: 72vh;
 }
 
 .BlockTitle {
   position: relative;
-  top: 5px;
+  top: 1vh;
   text-align: center;
-  font-family: "FZShuTi";
+  font-family: "YouYuan";
+  font-weight: bolder;
   font-size: 27px;
+  color: black;
 }
 .BlockTitle:hover {
   cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.6s;
 }
 
 .ForumText {
   font-family: "STSong";
   font-size: 17px;
   text-indent: 1em;
-  width: 300px;
-  top: 50px;
+  width: 40vh;
+  top: 7vh;
 }
 
 .ForumOne {
   position: absolute;
-  left: 60px;
+  left: 9vh;
 }
 
 .ForumTwo {
   position: absolute;
-  left: 360px;
+  left: 49vh;
 }
 
 .ForumThree {
   position: absolute;
-  left: 660px;
+  left: 89vh;
 }
 
 .RankText {
@@ -794,186 +780,59 @@ export default {
 
 .RankOne {
   position: absolute;
-  top: 45px;
-  left: 60px;
+  top: 6.4vh;
+  left: 8vh;
 }
 
 .RankTwo {
   position: absolute;
-  top: 45px;
-  left: 260px;
+  top: 6.4vh;
+  left: 36vh;
 }
 
 .RankThree {
   position: absolute;
-  top: 45px;
-  left: 460px;
+  top: 6.4vh;
+  left: 64vh;
 }
 
 .RankFour {
   position: absolute;
-  top: 45px;
-  left: 660px;
+  top: 6.4vh;
+  left: 92vh;
 }
 
 .RankFive {
   position: absolute;
-  top: 45px;
-  left: 860px;
+  top: 6.4vh;
+  left: 120vh;
 }
 
 .LittleAvatarLight {
   display: inline-block;
-  height: 50px;
-  width: 50px;
+  height: 7vh;
+  width: 7vh;
   border-radius: 50%;
-  border: 1px solid #67deff;
+  border: 1px solid #6ab0c4;
 }
 .LittleAvatarDark {
   display: inline-block;
-  height: 50px;
-  width: 50px;
+  height: 7vh;
+  width: 7vh;
   border-radius: 50%;
-  border: 1px solid #f7bf07;
+  border: 1px solid #e4bc39;
 }
 
 .FireAndNumLight {
-  color: #67deff;
+  color: #6ab0c4;
 }
 .FireAndNumDark {
-  color: #f7bf07;
-}
-
-.community {
-  top: 550px;
-}
-
-.navLight {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 45px;
-  width: 100%;
-  background-color: white;
-  box-shadow: 2px 2px 50px 2px rgb(228, 228, 228);
-}
-.navDark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 45px;
-  width: 100%;
-  background-color: #272b33;
-  box-shadow: 2px 2px 50px 2px rgb(32, 32, 32);
-}
-
-.boxLight {
-  box-shadow: none;
-  display: inline;
-  height: 100%;
-  width: 112.5px;
-  background-color: white;
-}
-.boxDark {
-  box-shadow: none;
-  display: inline;
-  height: 100%;
-  width: 112.5px;
-  background-color: #272b33;
-}
-
-.StarMap {
-  position: relative;
-  top: -12px;
-  left: 0px;
-  height: 80px;
-  background-repeat: repeat;
-}
-
-.l1 {
-  position: absolute;
-  top: 0;
-  left: 10px;
-}
-
-.l2 {
-  position: absolute;
-  top: 0;
-  left: 190px;
-}
-
-.l3 {
-  position: absolute;
-  top: 0;
-  left: 260px;
-}
-
-.l4 {
-  position: absolute;
-  top: 0;
-  left: 360px;
-}
-
-.r1 {
-  position: absolute;
-  top: 0;
-  right: 10px;
-}
-
-.r2 {
-  position: absolute;
-  top: 0;
-  right: 80px;
-}
-
-.r3 {
-  position: absolute;
-  top: 0;
-  right: 150px;
-}
-
-.avatar {
-  /* 要改成图片 */
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  background-color: transparent;
-}
-
-.avatarPic {
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-}
-
-.LittleBoxLight {
-  text-align: center;
-  text-decoration: none;
-  line-height: 300%;
-  font-size: 15px;
-  color: black;
-}
-.LittleBoxLight:hover {
-  color: #67deff;
-}
-.LittleBoxDark {
-  text-decoration: none;
-  text-align: center;
-  line-height: 300%;
-  font-size: 15px;
-  color: #fff5f9;
-}
-.LittleBoxDark:hover {
-  color: #f7bf07;
+  color: #e4bc39;
 }
 
 .transition {
   text-decoration: none;
   transition: all 0.8s;
-}
-
-html {
-  font-size: 14.4px; /*默认以设计稿为基准*/
 }
 
 /* 内外边距清零 */
@@ -1004,12 +863,12 @@ button {
 }
 
 a {
-  color: #666;
+  color: black;
   text-decoration: none;
 }
 
 a:hover {
-  color: #67deff;
+  color: #6ab0c4;
 }
 
 button,

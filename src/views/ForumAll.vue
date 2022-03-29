@@ -157,6 +157,8 @@ export default {
   background-color: transparent;
   height: 400px;
   z-index: -1;
+  filter: brightness(90%);
+  filter: contrast(90%);
 }
 .StarBackground2 {
   position: absolute;
@@ -165,6 +167,8 @@ export default {
   background-color: transparent;
   height: 400px;
   z-index: -1;
+  filter: brightness(90%);
+  filter: contrast(90%);
 }
 .StarBackground3 {
   opacity: 0.8;
@@ -173,15 +177,18 @@ export default {
   top: -70px;
   width: 1460px;
   z-index: -1;
+  filter: brightness(90%);
+  filter: contrast(90%);
 }
 .messages {
-  font-family: "STXinwei";
+  font-family: "SimSun";
   font-size: 2vh;
 }
 .author {
-  font-family: "STXinwei";
+  font-family: "SimSun";
   font-size: 2.5vh;
-  color: #06bdf0;
+  font-style: normal;
+  color: black;
 }
 
 .m-container {
@@ -195,7 +202,7 @@ export default {
 }
 .m-container .subheadbt {
   font-size: 20px;
-  background-color: rgba(49, 211, 254, 0.65);
+  background: linear-gradient(to left, rgb(110, 192, 230), rgb(179, 226, 235));
   color: white;
   margin-left: 3vw;
   margin-right: 3vw;
@@ -210,7 +217,7 @@ export default {
   width: 100%;
   font-size: 18px;
   text-align: right;
-  color: #3ec8ee;
+  color: black;
 }
 .title {
   margin-top: 0px;
@@ -220,7 +227,12 @@ export default {
 }
 .TLcard {
   height: 15vh;
-  background-color: rgba(254, 248, 239, 0.81);
+  background: linear-gradient(
+    45deg,
+    rgba(250, 237, 123, 0.4),
+    rgba(239, 243, 194, 0.4)
+  );
+  border: none;
   border-radius: 2vh;
 }
 .TLtitle {
@@ -234,9 +246,9 @@ export default {
   margin-top: 2vh;
   margin-left: 2vh;
   text-decoration: none;
-  color: #f7d347;
+  color: black;
   font-size: 23px;
-  font-family: "STXinwei";
+  font-family: "SimSun";
   font-weight: lighter;
 }
 .footleft {
@@ -246,8 +258,8 @@ export default {
 .footright {
   text-align: right;
   font-style: italic;
-  font-weight: bold;
-  color: #d87c7c;
+  /* font-weight: bold; */
+  color: black;
 }
 .mpage {
   margin: 0 auto;

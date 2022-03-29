@@ -17,7 +17,7 @@
               >
                 <!-- 头部 -->
                 <template v-slot:header>
-                  <v-toolbar dark color="rgba(153, 230, 252, 0.8)" class="mb-1">
+                  <v-toolbar dark color="rgb(113, 198, 201, 1)" class="mb-1">
                     <!-- 搜索 -->
                     <v-text-field
                       v-model="search"
@@ -47,7 +47,7 @@
                         <v-btn
                           large
                           depressed
-                          color="rgb(94, 220, 255)"
+                          color="rgb(113, 198, 201, 1)"
                           :value="false"
                           style="border: none !important"
                         >
@@ -57,7 +57,7 @@
                         <v-btn
                           large
                           depressed
-                          color="rgb(94, 220, 255)"
+                          color="rgb(113, 198, 201, 1)"
                           :value="true"
                           style="border: none !important"
                         >
@@ -155,35 +155,35 @@
                         </v-card-title>
                         <div class="tokens" style="height: 17vh">
                           <v-chip
-                            color="rgba(93, 217, 252, 0.8)"
+                            color="rgb(113, 198, 201, 0.9)"
                             text-color="white"
                             class="chips"
                             v-if="item['TAG1'] == '' ? false : true"
                             >{{ item["TAG1"] }}</v-chip
                           >
                           <v-chip
-                            color="rgba(93, 217, 252, 0.8)"
+                            color="rgb(113, 198, 201, 0.9)"
                             text-color="white"
                             class="chips"
                             v-if="item['TAG2'] == '' ? false : true"
                             >{{ item["TAG2"] }}</v-chip
                           >
                           <v-chip
-                            color="rgba(93, 217, 252, 0.8)"
+                            color="rgb(113, 198, 201, 0.9)"
                             text-color="white"
                             class="chips"
                             v-if="item['TAG3'] == '' ? false : true"
                             >{{ item["TAG3"] }}</v-chip
                           >
                           <v-chip
-                            color="rgba(93, 217, 252, 0.8)"
+                            color="rgb(113, 198, 201, 0.9)"
                             text-color="white"
                             class="chips"
                             v-if="item['TAG4'] == '' ? false : true"
                             >{{ item["TAG4"] }}</v-chip
                           >
                           <v-chip
-                            color="rgba(93, 217, 252, 0.8)"
+                            color="rgb(113, 198, 201, 0.9)"
                             text-color="white"
                             class="chips"
                             v-if="item['TAG5'] == '' ? false : true"
@@ -448,7 +448,7 @@ To siri:
         alt按键 滚动完再按住alt按键去点鼠标 可以接上
 */
 .LandN {
-  color: rgb(218, 167, 0);
+  color: rgb(148, 139, 60);
 }
 /*让头像居中 */
 .imgwarp {
@@ -493,7 +493,7 @@ To siri:
 }
 .EachItem {
   font-family: "FZShuTi";
-  color: rgb(218, 167, 0);
+  color: black;
   font-size: 17px;
   height: 5vh;
 }

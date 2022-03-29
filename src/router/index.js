@@ -29,6 +29,7 @@ const routes = [
     component: () => import('../views/ForumAll.vue')
   },
   {
+    //over
     path: '/customer',
     name: 'CustomerAll',
     component: () => import('../views/CustomerAll.vue')
@@ -51,15 +52,22 @@ const routes = [
     component: () => import('../views/ForumEdit.vue')
   },
   {
+    //over
     path: '/sort',
     name: 'SortView',
     component: () => import('../views/SortView.vue')
   },
   {
+    //over
     path: '/main',
     name: 'MainView',
     component: () => import('../views/MainMenu.vue')
   },
+  {
+    path: '/data',
+    name: 'DataView',
+    component: () => import('../views/CommunityAnalysis.vue')
+  }
   // },
   // {
   //   path: '/debug',
