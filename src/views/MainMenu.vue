@@ -569,9 +569,9 @@ export default {
         that.AvatarThree = response.data.rank_commits[2].AVATAR_URL;
         that.AvatarFour = response.data.rank_commits[3].AVATAR_URL;
         that.AvatarFive = response.data.rank_commits[4].AVATAR_URL;
-        that.Commit = response.data.commit_nums.commit_nums;
-        that.Issue = response.data.issue_nums.issue_nums;
-        that.Pull = response.data.pullRequests_nums.pullRequests_nums;
+        that.Commit = response.data.commits_count;
+        that.Issue = response.data.issues_all_count;
+        that.Pull = response.data.pulls_count;
       },
       function (err) {
         console.log(err);
