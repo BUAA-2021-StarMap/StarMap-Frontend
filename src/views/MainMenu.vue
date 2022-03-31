@@ -58,7 +58,7 @@
       <el-input
         placeholder="请输入问题"
         v-model="message"
-        clearable
+        
         v-if="light"
         class="outline transition inputLight"
       >
@@ -74,7 +74,7 @@
         <button
           @click="ShowTag"
           class="outline icomoon TagButton transition"
-          v-if="light"
+          v-if="dark"
         >
           
         </button>
@@ -118,13 +118,13 @@
       <!-- 排行榜部分 -->
       <el-main
         class="leaderboard"
-        :class="[light ? 'blockLight' : 'blockDark']"
+        :class="[dark ? 'blockLight' : 'blockDark']"
       >
         <p class="BlockTitle">
           <a
             href="/sort"
-            v-text="light ? 'Commits Rank' : 'Followers Rank'"
-            :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
+            v-text="dark ? 'Commits Rank' : 'Followers Rank'"
+            :class="[dark ? 'blockLinkLight' : 'blockLinkDark']"
             class="transition"
           ></a>
         </p>
@@ -134,15 +134,15 @@
               :src="AvatarOne"
               @error="imgError()"
               alt=""
-              :class="[light ? 'LittleAvatarLight' : 'LittleAvatarDark']"
+              :class="[dark ? 'LittleAvatarLight' : 'LittleAvatarDark']"
             /> </a
           ><br />
           <span
             class="icomoon transition"
-            :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
+            :class="[dark ? 'FireAndNumLight' : 'FireAndNumDark']"
             >&nbsp;</span
           >
-          <a href="#" :class="[light ? 'blockLinkLight' : 'blockLinkDark']">{{
+          <a href="#" :class="[dark ? 'blockLinkLight' : 'blockLinkDark']">{{
             PersonOne
           }}</a>
         </p>
@@ -153,15 +153,15 @@
               :src="AvatarTwo"
               @error="imgError()"
               alt=""
-              :class="[light ? 'LittleAvatarLight' : 'LittleAvatarDark']"
+              :class="[dark ? 'LittleAvatarLight' : 'LittleAvatarDark']"
             /> </a
           ><br />
           <span
             class="icomoon transition"
-            :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
+            :class="[dark ? 'FireAndNumLight' : 'FireAndNumDark']"
             >&nbsp;</span
           >
-          <a href="#" :class="[light ? 'blockLinkLight' : 'blockLinkDark']">{{
+          <a href="#" :class="[dark ? 'blockLinkLight' : 'blockLinkDark']">{{
             PersonTwo
           }}</a>
         </p>
@@ -172,15 +172,15 @@
               :src="AvatarThree"
               @error="imgError()"
               alt=""
-              :class="[light ? 'LittleAvatarLight' : 'LittleAvatarDark']"
+              :class="[dark ? 'LittleAvatarLight' : 'LittleAvatarDark']"
             /> </a
           ><br />
           <span
             class="icomoon transition"
-            :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
+            :class="[dark ? 'FireAndNumLight' : 'FireAndNumDark']"
             >&nbsp;</span
           >
-          <a href="#" :class="[light ? 'blockLinkLight' : 'blockLinkDark']">{{
+          <a href="#" :class="[dark ? 'blockLinkLight' : 'blockLinkDark']">{{
             PersonThree
           }}</a>
         </p>
@@ -191,15 +191,15 @@
               :src="AvatarFour"
               @error="imgError()"
               alt=""
-              :class="[light ? 'LittleAvatarLight' : 'LittleAvatarDark']"
+              :class="[dark ? 'LittleAvatarLight' : 'LittleAvatarDark']"
             /> </a
           ><br />
           <span
             class="icomoon transition"
-            :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
+            :class="[dark ? 'FireAndNumLight' : 'FireAndNumDark']"
             >&nbsp;</span
           >
-          <a href="#" :class="[light ? 'blockLinkLight' : 'blockLinkDark']">{{
+          <a href="#" :class="[dark ? 'blockLinkLight' : 'blockLinkDark']">{{
             PersonFour
           }}</a>
         </p>
@@ -210,25 +210,25 @@
               :src="AvatarFive"
               @error="imgError()"
               alt=""
-              :class="[light ? 'LittleAvatarLight' : 'LittleAvatarDark']"
+              :class="[dark ? 'LittleAvatarLight' : 'LittleAvatarDark']"
             /> </a
           ><br />
           <span
             class="icomoon transition"
-            :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
+            :class="[dark ? 'FireAndNumLight' : 'FireAndNumDark']"
             >&nbsp;</span
           >
-          <a href="#" :class="[light ? 'blockLinkLight' : 'blockLinkDark']">{{
+          <a href="#" :class="[dark ? 'blockLinkLight' : 'blockLinkDark']">{{
             PersonFour
           }}</a>
         </p>
       </el-main>
       <!-- 论坛部分 -->
-      <el-main class="forum" :class="[light ? 'blockLight' : 'blockDark']">
+      <el-main class="forum" :class="[dark ? 'blockLight' : 'blockDark']">
         <p class="BlockTitle">
           <a
             href="/forum"
-            :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
+            :class="[dark ? 'blockLinkLight' : 'blockLinkDark']"
             class="transition"
             >论坛</a
           >
@@ -237,12 +237,12 @@
         <p class="ForumText ForumOne">
           <span
             class="icomoon transition"
-            :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
+            :class="[dark ? 'FireAndNumLight' : 'FireAndNumDark']"
             > 1</span
           ><br />
           <a
             :href="article1"
-            :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
+            :class="[dark ? 'blockLinkLight' : 'blockLinkDark']"
             >{{ TitleOne }}</a
           >
         </p>
@@ -250,12 +250,12 @@
         <p class="ForumText ForumTwo">
           <span
             class="icomoon transition"
-            :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
+            :class="[dark ? 'FireAndNumLight' : 'FireAndNumDark']"
             > 2</span
           ><br />
           <a
             :href="article2"
-            :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
+            :class="[dark ? 'blockLinkLight' : 'blockLinkDark']"
             >{{ TitleTwo }}</a
           >
         </p>
@@ -263,22 +263,22 @@
         <p class="ForumText ForumThree">
           <span
             class="icomoon transition"
-            :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
+            :class="[dark ? 'FireAndNumLight' : 'FireAndNumDark']"
             > 3</span
           ><br />
           <a
             :href="article3"
-            :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
+            :class="[dark ? 'blockLinkLight' : 'blockLinkDark']"
             >{{ TitleThree }}</a
           >
         </p>
       </el-main>
       <!-- 数据部分 -->
-      <el-main class="community" :class="[light ? 'blockLight' : 'blockDark']">
+      <el-main class="community" :class="[dark ? 'blockLight' : 'blockDark']">
         <p class="BlockTitle">
           <a
             :href="CommunityAnalysis"
-            :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
+            :class="[dark ? 'blockLinkLight' : 'blockLinkDark']"
             class="transition"
             >社区分析</a
           >
@@ -286,12 +286,12 @@
         <p class="ForumText ForumOne">
           <span
             class="icomoon transition"
-            :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
+            :class="[dark ? 'FireAndNumLight' : 'FireAndNumDark']"
             >commit</span
           ><br />
           <a
             :href="CommunityAnalysis"
-            :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
+            :class="[dark ? 'blockLinkLight' : 'blockLinkDark']"
             class="CA"
             >{{ Commit }}</a
           >
@@ -300,12 +300,12 @@
         <p class="ForumText ForumTwo">
           <span
             class="icomoon transition"
-            :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
+            :class="[dark ? 'FireAndNumLight' : 'FireAndNumDark']"
             >issue</span
           ><br />
           <a
             :href="CommunityAnalysis"
-            :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
+            :class="[dark ? 'blockLinkLight' : 'blockLinkDark']"
             class="CA"
             >{{ Issue }}</a
           >
@@ -314,12 +314,12 @@
         <p class="ForumText ForumThree">
           <span
             class="icomoon transition"
-            :class="[light ? 'FireAndNumLight' : 'FireAndNumDark']"
+            :class="[dark ? 'FireAndNumLight' : 'FireAndNumDark']"
             >pull</span
           ><br />
           <a
             :href="CommunityAnalysis"
-            :class="[light ? 'blockLinkLight' : 'blockLinkDark']"
+            :class="[dark ? 'blockLinkLight' : 'blockLinkDark']"
             class="CA"
             >{{ Pull }}</a
           >
@@ -602,7 +602,7 @@ export default {
   top: 150px;
   width: 520px;
   border-radius: 10px;
-  background-color: rgb(103, 222, 255, 0.5);
+  background-color: rgb(239, 243, 194,0.7);
   z-index: 2;
 }
 .EachTag {
@@ -962,5 +962,6 @@ body {
 .CA {
   text-align: center;
   font-size: 24px;
+  padding-left: 20px;
 }
 </style>
